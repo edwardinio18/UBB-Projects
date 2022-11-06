@@ -294,16 +294,12 @@ SELECT tID FROM Products WHERE pName LIKE 'Cannabis%'
 INTERSECT
 SELECT tID FROM Types;
 
-select * from Orders o 
-
 
 -- c. 2 queries with the difference operation; use EXCEPT and NOT IN;
 -- 1. All customer names from each order where the shop ordered from has an ID of 2 except all orders where the shop ordered from has an ID of 3
 SELECT c.cFirstName, c.cLastName FROM Orders o, Customers c WHERE c.cID = o.cID AND o.sID = 2
 EXCEPT
 SELECT c1.cFirstName, c1.cLastName FROM Orders o1, Customers c1 WHERE c1.cID = o1.cID AND o1.sID = 3;
-
-select * from Orders o
 
 -- 2. All customer names from feedback where their name is different than Edward except all customers where their feedback rating is less than 3
 SELECT c.cFirstName, c.cLastName FROM Feedback f, Customers c WHERE c.cID = f.cID AND c.cFirstName NOT IN ('Edward')
@@ -316,7 +312,6 @@ SELECT c1.cFirstName, c1.cLastName FROM Feedback f1, Customers c1 WHERE c1.cID =
 -- 1. All distinct shop names and locations where the shop name is different than Downtown and Riverside and each order price from each distinct shop is greater than 50
 SELECT DISTINCT(s.sName), s.sLoc FROM Stores s
 INNER JOIN Orders o ON s.sID = o.sID
-INNER JOIN Customers c ON o.cID = c.cID
 WHERE s.sName IN ('Downtown', 'Riverside') AND o.oPrice > 50;
 
 -- 2. All customer, has discount and discount information
@@ -325,7 +320,8 @@ LEFT JOIN HasDiscount hd ON c.cID = hd.cID
 LEFT JOIN Discounts d ON hd.dID = d.dID;
 
 -- 3. All product names, prices including VAT and product type from each order the product stock of each product found in each order is greater than 40
-SELECT p.pName, p.pPrice * 1.25 AS PriceAfterVAT, t.tName FROM Orders o
+SELECT p.pName, p.pPrice * 1.25 AS PriceAfterVAT, t.tName
+FROM Orders o
 RIGHT JOIN Products p ON o.pID = p.pID
 INNER JOIN Types t ON p.tID = t.tID
 WHERE p.pStock > 40;
@@ -399,7 +395,7 @@ INNER JOIN HasDiscount hd ON c.cID = hd.cID
 INNER JOIN Discounts d ON hd.dID = d.dID
 GROUP BY c.cFirstName, c.cLastName, d.dAmount, d.dValidUntil
 HAVING MIN(d.dAmount) <
-(SELECT MAX(d1.dAmount) FROM Discounts d1)
+(SELECT AVG(d1.dAmount) FROM Discounts d1)
 ORDER BY d.dValidUntil DESC;
 
 -- 4. All distinct customer names and their corresponding feedback ratings where they gave a rating of 4

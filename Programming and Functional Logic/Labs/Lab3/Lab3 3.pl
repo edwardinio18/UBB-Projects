@@ -4,6 +4,98 @@
 % subst(L - initial list, E - element, S - list to add, R - result list)
 % flow model (i, i, i, o) (i, i, i, i)
 
+% subst(L, _, [], L):-
+%     !.
+% subst([], _, _, []):-
+%     !.
+% subst([H|T], E, S, R):-
+%     H =:= E,
+%     !,
+%     append(S, R1, R),
+%     subst(T, E, S, R1).
+% subst([H|T], E, S, [H|R]):-
+%     subst(T, E, S, R).
+
+% % b. For a heterogeneous list, formed from integer numbers and list of numbers,
+% % replace in every sublist all occurrences of the first element from sublist it a new given list.
+% % Eg.: [1, [4, 1, 4], 3, 6, [7, 10, 1, 3, 9], 5, [1, 1, 1], 7] si [11, 11] =>
+% % [1, [11, 11, 1, 11, 11], 3, 6, [11, 11, 10, 1, 3, 9], 5, [11 11 11 11 11 11], 7]
+
+% % Current result: [1, [11, 11, 2, 11, 11], 2]
+
+% % count(L - list, E - element, R - result)
+% % flow model (i, i, o) (i, i, i)
+
+% count([], _, 0):-
+%     !.
+% count([H|T], E, R):-
+%     H =:= E,
+%     !,
+%     count(T, E, R1),
+%     R is R1 + 1.
+% count([H|T], E, R):-
+%     H =\= E,
+%     count(T, E, R).
+
+% % app(C - element count, S - list to add, R - result list)
+% % flow model (i, i, o) (i, i, i)
+
+% app(_, [], []):-
+%     !.
+% app(C, _, R):-
+%     C =:= 0,
+%     R = [],
+%     !.
+% app(C, S, R):-
+%     C1 = C - 1,
+%     append(R1, S, R),
+%     app(C1, S, R1),
+%     !.
+
+% % app(2, [11, 11], []) -> app(1, [11, 11], [11, 11]) -> app(0, [11, 11], [11, 11, 11, 11])
+
+% % replace(L - initial list, S - list to add, R - result list)
+% % flow model (i, i, o) (i, i, i)
+
+% % Change: [1, [1, 2, 1], 2] and [11, 11] -> [1, [1, 2, 1], [11, 11, 11, 11], 2]
+
+% list_empty([], 1).
+% list_empty([_|_], 0).
+
+% replace(L, [], L):-
+%     !.
+% replace([], _, []):-
+%     !.
+% replace([], [], []):-
+%     !.
+% replace([H|T], S, [H1, H2|R]):-
+%     is_list(H),
+%     list_empty(H, RES),
+%     RES =:= 0,
+%     !,
+%     H = [E|_],
+%     count(H, E, C),
+%     app(C, S, R1),
+%     H1 = H,
+%     H2 = R1,
+%     replace(T, S, R).
+% replace([H|T], S, [H1, H2|R]):-
+%     is_list(H),
+%     list_empty(H, RES),
+%     RES =:= 1,
+%     !,
+%     H1 = [],
+%     H2 = [],
+%     replace(T, S, R).
+% replace([H|T], S, [H|R]):-
+%     not(is_list(H)),
+%     replace(T, S, R).
+
+
+
+
+
+
 subst(L, _, [], L):-
     !.
 subst([], _, _, []):-
@@ -40,9 +132,6 @@ replace([H|T], S, [H1|R]):-
 replace([H|T], S, [H|R]):-
     not(is_list(H)),
     replace(T, S, R).
-
-
-
 
 
 % !-- TESTING --!
