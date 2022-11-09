@@ -22,6 +22,7 @@ public class ArithExp implements IExpression {
 	public IValue eval(IDictionary<String, IValue> table) throws ExpressionException, ADTException {
 		IValue v1, v2;
 		v1 = e1.eval(table);
+
 		if (v1.getType().equals(new IntType())) {
 			v2 = e2.eval(table);
 			if (v2.getType().equals(new IntType())) {
