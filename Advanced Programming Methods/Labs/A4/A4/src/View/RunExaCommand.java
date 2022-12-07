@@ -25,6 +25,7 @@ public class RunExaCommand extends Command {
 			String option = readOption.next();
 			controller.setDisplayFlag(Objects.equals(option, "Y"));
 			controller.allSteps();
+			System.out.println(controller.getRepository().getCurrentState().getOut().toString());
 		} catch (ExpressionException | ADTException | StatementException | IOException exception) {
 			System.out.println("\u001B[31m" + exception.getMessage() + "\u001B[0m");
 		}

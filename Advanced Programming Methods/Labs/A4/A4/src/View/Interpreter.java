@@ -114,6 +114,16 @@ public class Interpreter {
 		IRepository repo9 = new Repository(prg9, "log9.txt");
 		Controller controller9 = new Controller(repo9);
 
+		IStmt ex10 = new CompStmt(new VarDeclStmt("v", new RefType(new IntType())),
+				new CompStmt(new NewStmt("v", new ValueExp(new IntValue(20))),
+						new CompStmt(new VarDeclStmt("a", new RefType(new RefType(new IntType()))),
+								new CompStmt(new NewStmt("a", new VarExp("v")),
+										new CompStmt(new NewStmt("v", new ValueExp(new IntValue(30))),
+												new PrintStmt(new ReadHeapExp(new ReadHeapExp(new VarExp("a")))))))));
+		ProgramState prg10 = new ProgramState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), new MyDictionary<>(), new MyHeap(), ex10);
+		IRepository repo10 = new Repository(prg10, "log10.txt");
+		Controller controller10 = new Controller(repo10);
+
 		TextMenu menu = new TextMenu();
 		menu.addCommand(new ExitCommand("0", "exit"));
 		menu.addCommand(new RunExaCommand("1", ex1.toString(), controller1));
@@ -125,6 +135,7 @@ public class Interpreter {
 		menu.addCommand(new RunExaCommand("7", ex7.toString(), controller7));
 		menu.addCommand(new RunExaCommand("8", ex8.toString(), controller8));
 		menu.addCommand(new RunExaCommand("9", ex9.toString(), controller9));
+		menu.addCommand(new RunExaCommand("10", ex10.toString(), controller10));
 		menu.show();
 	}
 }
