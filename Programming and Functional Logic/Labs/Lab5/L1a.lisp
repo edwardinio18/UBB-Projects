@@ -209,7 +209,3 @@
 	(fiveam:is (equal nil (mainDeletemax '())))
 	(fiveam:is (equal '(-1 1 2 2 1 -1) (mainDeletemax '(-1 1 2 3 3 2 1 -1))))
 )
-
-(defun runAllTests ()
-	(fiveam:run!)
-)
