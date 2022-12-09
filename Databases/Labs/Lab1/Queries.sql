@@ -1,5 +1,5 @@
 DROP TABLE Orders;
-DROP TABLE Products_Stores;
+DROP TABLE ProductsStores;
 DROP TABLE Products;
 DROP TABLE HasDiscount;
 DROP TABLE WorksIn;
@@ -31,6 +31,7 @@ CREATE TABLE Types (
 	tID INT IDENTITY,
 	tName VARCHAR(50) NOT NULL,
 	tPriceRange VARCHAR(50) NOT NULL,
+	tQuantity INT NOT NULL,
 	PRIMARY KEY (tID)
 );
 

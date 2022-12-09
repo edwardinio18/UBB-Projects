@@ -11,7 +11,7 @@
 			(null l) nil
 		)
 		(
-			(/= (mod p n) 0) (cons (car l) (remN (cdr l) n (+ p 1)))
+			(and (/= p 0) (/= (mod p n) 0)(cons (car l) (remN (cdr l) n (+ p 1))))
 		)
 		(
 			t (remN (cdr l) n (+ p 1))
@@ -20,7 +20,7 @@
 )
 
 (defun mainRemN (l n)
-	(remN l n 0)
+	(remN l n 1)
 )
 
 
@@ -80,7 +80,7 @@
 ; c) Build a function that returns the minimum numeric atom from a list, at any level.
 
 ; myMin(a, b) = 
-; = nil , if a is not a number and b is not a numbe
+; = nil , if a is not a number and b is not a number
 ; = a , if b is not a numbe
 ; = b , if a is not a number
 ; = a , if a < b
@@ -131,15 +131,14 @@
 	(findMin l)
 )
 
-
-; d) Write a function that deletes from a linear list of all occurrences of the maximum element.
+; d original) Write a function to remove all occurrences of the maximum number from a linear list
 
 ; deleteMax(l1l2...ln, max) =
 ; = [], if n = 0
 ; = {l1} U deleteMax(l2...ln), if l1 != max
 ; = deleteMax(l2...ln), otherwise
 
-(defun maxElem (l)
+(defun maxElem1 (l)
 	(cond
 		(
 			(null l) nil
@@ -148,30 +147,116 @@
 			(null (cdr l)) (car l)
 		)
 		(
-			(> (car l) (maxElem (cdr l))) (car l)
+			(> (car l) (maxElem1 (cdr l))) (car l)
 		)
 		(
-			t (maxElem (cdr l))
+			t (maxElem1 (cdr l))
 		)
 	)
 )
 
-(defun deleteMaxOcc (l max)
+(defun deleteMaxOcc1 (l max)
 	(cond
 		(
 			(null l) nil
 		)
 		(
-			(= (car l) max) (deleteMaxOcc (cdr l) max)
+			(= (car l) max) (deleteMaxOcc1 (cdr l) max)
 		)
 		(
-			t (cons (car l) (deleteMaxOcc (cdr l) max))
+			t (cons (car l) (deleteMaxOcc1 (cdr l) max))
 		)
 	)
 )
 
-(defun mainDeleteMax (l)
-	(deleteMaxOcc l (maxElem l))
+(defun mainDeleteMax1 (l)
+	(deleteMaxOcc1 l (maxElem1 l))
+)
+
+; d change) write a function to remove all occurrences of the maximum number from a list, at any level.
+
+; maxAB(a, b) = 
+; = a , if b is not a number
+; = b , if a is not a number
+; = a , if a > b
+; = b , otherwise
+
+(defun maxAB(a b)
+    (cond
+        (
+			(not (numberp b)) a
+		)
+        (
+			(not (numberp a)) b
+		)
+        (
+			(> a b) a
+		)
+        (
+			t b
+		)
+    )
+)
+
+; maxInList(l1l2...ln) = 
+; = nil , if n = 0
+; = maxAB(maxInList(l1), maxInList(l2...ln)) , if l1 is a list
+; = maxAB(l1, maxInList(l2...ln)) , otherwise
+
+(defun maxInList (l)
+    (cond
+        (
+			(null l) nil
+		)
+        (
+			(listp (car l)) (maxAB (maxInList (car l)) (maxInList (cdr l)))
+		)
+        (
+			t (maxAB (car l) (maxInList (cdr l)))
+		)
+    )
+)
+
+; app (l1l2...ln, p1p2...pm) = 
+; = p1p2...pm, if n = 0
+; = {l1} U app(l2...ln, p1p2...pm) , otherwise
+
+(defun app (l res)
+    (cond
+        (
+			(null l) res
+		)
+        (
+			t (cons (car l) (app (cdr l) res))
+		)
+    )
+)
+
+; deleteMax(l1l2...ln, max) = 
+; = nil , if n = 0
+; = deleteMax(l1, max) U deleteMax(l2...ln, max) , if l1 is a list
+; = deleteMax(l2...ln, max) , if l1 = max
+; = {l1} U deleteMax(l2...ln, max) , otherwise
+
+(defun deleteMax(l max)
+    (cond
+        (
+			(null l) nil
+		)
+        (
+			(listp (car l)) (cons (deleteMax (car l) max) (deleteMax (cdr l) max))
+		)
+        (
+			(equal (car l) max) (deleteMax (cdr l) max)
+		)
+        (
+			t (cons (car l) (deleteMax (cdr l) max))
+		)
+    )
+)
+
+(defun mainDeleteMax(l)
+    (deleteMax l (maxInList l))
 )
 
 
@@ -179,10 +264,10 @@
 ; ! --- UNIT TESTING --- !
 
 (fiveam:test testMainRemN
-	(fiveam:is (equal '(2 4 6) (mainRemN '(1 2 3 4 5 6) 2)))
-	(fiveam:is (equal nil (mainRemN '(1) 2)))
-	(fiveam:is (equal '(1 1 1 1) (mainRemN '(1 1 1 1 1 1) 5)))
-	(fiveam:is (equal '(41 62 72 47 25) (mainRemN '(51 41 62 72 47 25) 10)))
+	(fiveam:is (equal '(1 3 5) (mainRemN '(1 2 3 4 5 6) 2)))
+	(fiveam:is (equal '(1) (mainRemN '(1) 2)))
+	(fiveam:is (equal '(1 1 1 1 1) (mainRemN '(1 1 1 1 1 1) 5)))
+	(fiveam:is (equal '(51 41 62 72 47 25) (mainRemN '(51 41 62 72 47 25) 10)))
 	(fiveam:is (equal nil (mainRemN '(9 7 5 3 1) 1)))
 )
 
@@ -192,6 +277,7 @@
 	(fiveam:is (equal nil (mainValley '(1 0 1 0))))
 	(fiveam:is (equal nil (mainValley '(1 0))))
 	(fiveam:is (equal nil (mainValley '())))
+	(fiveam:is (equal t (mainValley '(5 4 3 2 1 2 3 4 5))))
 )
 
 (fiveam:test testMainMinNum
@@ -203,9 +289,17 @@
 )
 
 (fiveam:test testMainDeleteMax
-	(fiveam:is (equal '(1 5 6 2 4 7 5 8 6 7 5 6 4 8 8 7 6 1 6 4) (mainDeleteMax '(1 5 6 2 4 7 5 8 6 7 5 6 4 8 8 7 6 9 1 6 4 9))))
-	(fiveam:is (equal nil (mainDeletemax '(9 9 9 9 9))))
-	(fiveam:is (equal nil (mainDeletemax '(0))))
-	(fiveam:is (equal nil (mainDeletemax '())))
-	(fiveam:is (equal '(-1 1 2 2 1 -1) (mainDeletemax '(-1 1 2 3 3 2 1 -1))))
+	(fiveam:is (equal '(1 5 6 2 4 7 5 8 6 7 5 6 4 8 8 7 6 1 6 4) (mainDeleteMax1 '(1 5 6 2 4 7 5 8 6 7 5 6 4 8 8 7 6 9 1 6 4 9))))
+	(fiveam:is (equal nil (mainDeletemax1 '(9 9 9 9 9))))
+	(fiveam:is (equal nil (mainDeletemax1 '(0))))
+	(fiveam:is (equal nil (mainDeletemax1 '())))
+	(fiveam:is (equal '(-1 1 2 2 1 -1) (mainDeletemax1 '(-1 1 2 3 3 2 1 -1))))
+)
+
+(fiveam:test testMainDeleteMaxChange
+	(fiveam:is (equal '(1 2 (3 4) 4 (1)) (mainDeleteMax '(1 2 (3 4) 4 (1 9)))))
+	(fiveam:is (equal nil (mainDeleteMax '())))
+	(fiveam:is (equal '(1 2 (3 1)) (mainDeleteMax '(1 2 (3 9 1)))))
+	(fiveam:is (equal '((1 2)) (mainDeleteMax '(9 9 9 9 9 9 (1 2)))))
+	(fiveam:is (equal nil (mainDeleteMax '(9 9 9 9 9 9))))
 )

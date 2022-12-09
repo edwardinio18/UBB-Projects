@@ -70,7 +70,7 @@
 (fiveam:test testPreTrav
     (fiveam:is (equal '(\T I G A R A) (preTrav '(\T (I (G) (A (R (A))))))))
     (fiveam:is (equal '(A B D F G C H I X Z) (preTrav '(A (B (D) (F (G))) (C () (H (I (X)) (Z)))))))
-    (fiveam:is (equal '(A B D E F G) (preTrav '(A (B C) (D (E) (F (G)))))))
+    (fiveam:is (equal '(A B C D E F G) (preTrav '(A (B (C)) (D (E) (F (G)))))))
     (fiveam:is (equal nil (preTrav '())))
     (fiveam:is (equal '(L I S P) (preTrav '(L () (I (S () (P)))))))
 )

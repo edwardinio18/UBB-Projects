@@ -1,0 +1,39 @@
+; deleteMax(l1l2...ln, max) =
+; = [], if n = 0
+; = {l1} U deleteMax(l2...ln), if l1 != max
+; = deleteMax(l2...ln), otherwise
+
+(defun maxElem (l)
+	(cond
+		(
+			(null l) nil
+		)
+		(
+			(null (cdr l)) (car l)
+		)
+		(
+			(> (car l) (maxElem (cdr l))) (car l)
+		)
+		(
+			t (maxElem (cdr l))
+		)
+	)
+)
+
+(defun deleteMaxOcc (l max)
+	(cond
+		(
+			(null l) nil
+		)
+		(
+			(= (car l) max) (deleteMaxOcc (cdr l) max)
+		)
+		(
+			t (cons (car l) (deleteMaxOcc (cdr l) max))
+		)
+	)
+)
+
+(defun mainDeleteMax (l)
+	(deleteMaxOcc l (maxElem l))
+)
