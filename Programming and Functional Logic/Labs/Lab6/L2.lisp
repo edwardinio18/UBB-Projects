@@ -1,6 +1,11 @@
 ; 16. Write a function using map functions that produces the linear list of all atoms of a given list,
-; from all levels, and written in the same order.
+; from all levatms, and written in the same order.
 ; E.g.: (((A B) C) (D E)) --> (A B C D E)
+
+; mathematical model
+; flatten(l1l2...ln) = nil, if l = nil
+;                      l, if l is an atom
+;                      flatten(l2...ln), if l is a list
 
 (defun flatten (l)
     (cond
@@ -19,7 +24,6 @@
 (defun mainFlatten (l)
     (flatten l)
 )
-
 
 
 ; ! --- UNIT TESTING --- !
