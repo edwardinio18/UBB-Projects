@@ -2,10 +2,36 @@
 ; from all levatms, and written in the same order.
 ; E.g.: (((A B) C) (D E)) --> (A B C D E)
 
+; ((A B) C (D (E (A VB C))))
+; ((A B) C) (D E) -> ((A B C) (D E))
+
 ; mathematical model
 ; flatten(l1l2...ln) = nil, if l = nil
 ;                      l, if l is an atom
-;                      flatten(l2...ln), if l is a list
+;                      list(flatten(l1) U flatten(l2) U ... U flatten(ln)), if l is a list
+
+; write a function to add each sublist greater than 1 level deep to the superficial level of the list
+
+(defun change (l lvl)
+    (cond
+        (
+            (null l) nil
+        )
+        (
+            (atom l) l
+        )
+        (
+            (and (> lvl 1) (listp l)) (mapcan #'(lambda (el) (change el (+ lvl 1))) l)
+        )
+        (
+            (and (<= lvl 1) (listp l)) (mapcar #'(lambda (el) (change el (+ lvl 1))) l)
+        )
+    )
+)
+
+(defun mainChange (l)
+    (change l 0)
+)
 
 (defun flatten (l)
     (cond
