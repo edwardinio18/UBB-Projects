@@ -63,19 +63,20 @@ AS
 BEGIN
 	DECLARE @pID INT
 	DECLARE @sID INT
-	DECLARE curs CURSOR
+	DECLARE c CURSOR
+		LOCAL
 		FOR
 		SELECT p.pID, s.sID FROM (SELECT p.pID FROM Products p WHERE pName LIKE 'Type %') p CROSS JOIN Stores s
-	OPEN curs
+	OPEN c
 	DECLARE @i INT = 0
 	WHILE @i < @n
 	BEGIN
-		FETCH NEXT FROM curs INTO @pID, @sID
+		FETCH NEXT FROM c INTO @pID, @sID
 		INSERT INTO ProductsStores (pID, sID, psQuantity) VALUES (@pID, @sID, -420)
 		SET @i = @i + 1
 	END
-	CLOSE curs
-	DEALLOCATE curs
+	CLOSE c
+	DEALLOCATE c
 END
 
 -- 3. delete
@@ -116,8 +117,6 @@ AS
 	JOIN Types t ON p.tID = t.tID
 	WHERE p.pPrice < 30
 	GROUP BY t.tName
-
-	
 	
 CREATE OR ALTER PROCEDURE selectView
 (@name VARCHAR(100))
@@ -136,15 +135,127 @@ INSERT INTO Views (Name) VALUES ('view1'), ('view2'), ('view3')
 
 INSERT INTO TestViews (TestID, ViewID) VALUES (7, 1), (7, 2), (7, 3)
 
-INSERT INTO TestTables (TestID, TableID, NoOfRows, [Position]) VALUES (1, 1, 420, 1), (2, 1, 4200, 2), (3, 2, 690, 3), (4, 2, 6900, 1), (5, 3, 4269, 2), (6, 3, 6942, 3)
+INSERT INTO TestTables (TestID, TableID, NoOfRows, [Position]) VALUES (1, 1, 69, 1), (2, 1, 420, 3), (3, 2, 429, 2), (4, 2, 694, 2), (5, 3, 496, 3), (6, 3, 296, 1)
 
+CREATE OR ALTER PROCEDURE runDeleteTests
+AS
+BEGIN
+	DECLARE @tID INT
+	
+	DECLARE c CURSOR
+		LOCAL
+		FOR SELECT TestID FROM TestTables WHERE TestID % 2 = 0
+		ORDER BY [Position] ASC
+		
+	OPEN c
+	FETCH NEXT FROM c INTO @tID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		DECLARE @tName VARCHAR(128) = (SELECT Name FROM Tests WHERE TestID = @tID)
+		
+		EXEC @tName
+		
+		FETCH NEXT FROM c INTO @tID
+	END
+	
+	CLOSE c
+	DEALLOCATE c
+END
 
+CREATE OR ALTER PROCEDURE runInsertTests (@tID INT)
+AS
+BEGIN
+	DECLARE @testID INT
+	DECLARE @tableID INT
+	DECLARE @rows INT
+	
+	DECLARE c CURSOR
+		LOCAL
+		FOR SELECT TestID, TableID, NoOfRows FROM TestTables WHERE TestID % 2 = 1
+		ORDER BY [Position] ASC
+		
+	OPEN c
+	FETCH NEXT FROM c INTO @testID, @tableID, @rows
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		DECLARE @t1 DATETIME = GETDATE()
+		
+		DECLARE @testName VARCHAR(128) = (SELECT Name FROM Tests WHERE TestID = @testID)
+		
+		EXEC (@testName + ' ' + @rows)
+		
+		DECLARE @t2 DATETIME = GETDATE()
+		
+		INSERT INTO TestRunTables (TestRunID, TableID, StartAt, EndAt) VALUES (@tID, @tableID, @t1, @t2)
+		
+		FETCH NEXT FROM c INTO @testID, @tableID, @rows
+	END
+	
+	CLOSE c
+	DEALLOCATE c
+END
 
--- in TestRuns we save when the test started and when it finished
--- in TestRunsTables we save when the test for tables started
--- in TestRunsViews we save when the test for views started
--- for each TestRun we have to have 3 lines in TestRunsTable and TestRunsViews
--- must be ran >= 5 times
+CREATE OR ALTER PROCEDURE runViewTests
+@tID INT
+AS
+BEGIN
+	DECLARE @vID INT
+	
+	DECLARE c CURSOR
+		LOCAL
+		FOR SELECT ViewID FROM TestViews
+		
+	OPEN c
+	FETCH NEXT FROM c INTO @vID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		DECLARE @t1 DATETIME = GETDATE()
+		
+		DECLARE @vName VARCHAR(128) = (SELECT Name FROM Views WHERE ViewID = @vID)
+		
+		EXEC ('selectView ' + @vName)
+		
+		DECLARE @t2 DATETIME = GETDATE()
+		
+		INSERT INTO TestRunViews (TestRunID, ViewID, StartAt, EndAt) VALUES (@tID, @vID, @t1, @t2)
+		
+		FETCH NEXT FROM c INTO @vID
+	END
+	
+	CLOSE c
+	DEALLOCATE c
+END
 
+CREATE OR ALTER PROCEDURE runProcs
+AS
+BEGIN
+	INSERT INTO TestRuns (StartAt) VALUES (GETDATE())
+	
+	DECLARE @tID INT = SCOPE_IDENTITY()
+	
+	DECLARE @t0 DATETIME = GETDATE()
+	
+	EXEC runDeleteTests
+	EXEC runInsertTests @tID
+	EXEC runViewTests @tID
+	
+	UPDATE TestRuns SET Description = 'test tigara', EndAt = GETDATE() WHERE TestRunID = @tID
+END
 
+CREATE OR ALTER PROCEDURE runAllTests (@n INT)
+AS
+BEGIN
+	DECLARE @i INT = 0
+	WHILE @i < @n
+	BEGIN
+		EXEC runProcs
+		
+		SET @i = @i + 1
+	END
+	
+	SELECT * FROM TestRunTables
+	SELECT * FROM TestRunViews
+	SELECT * FROM TestRuns
+END
 
+EXEC runAllTests 5
