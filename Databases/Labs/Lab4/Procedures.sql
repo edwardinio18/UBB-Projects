@@ -141,21 +141,21 @@ CREATE OR ALTER PROCEDURE runDeleteTests
 AS
 BEGIN
 	DECLARE @tID INT
+	DECLARE @tName VARCHAR(128)
 	
 	DECLARE c CURSOR
 		LOCAL
-		FOR SELECT TestID FROM TestTables WHERE TestID % 2 = 0
-		ORDER BY [Position] ASC
+		FOR SELECT t2.Name, t1.TestID FROM TestTables t1 INNER JOIN Tests t2 ON t1.TestID = t2.TestID WHERE t2.Name LIKE 'delete%'
+		ORDER BY t1.[Position] ASC
 		
 	OPEN c
-	FETCH NEXT FROM c INTO @tID
+	FETCH NEXT FROM c INTO @tName, @tID
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		DECLARE @tName VARCHAR(128) = (SELECT Name FROM Tests WHERE TestID = @tID)
 		
 		EXEC @tName
 		
-		FETCH NEXT FROM c INTO @tID
+		FETCH NEXT FROM c INTO @tName, @tID
 	END
 	
 	CLOSE c
@@ -168,27 +168,26 @@ BEGIN
 	DECLARE @testID INT
 	DECLARE @tableID INT
 	DECLARE @rows INT
+	DECLARE @tName VARCHAR(128)
 	
 	DECLARE c CURSOR
 		LOCAL
-		FOR SELECT TestID, TableID, NoOfRows FROM TestTables WHERE TestID % 2 = 1
+		FOR SELECT t2.Name, t1.TestID, t1.TableID, t1.NoOfRows FROM TestTables t1 INNER JOIN Tests t2 ON t1.TestID = t2.TestID WHERE t2.Name LIKE 'add%'
 		ORDER BY [Position] ASC
 		
 	OPEN c
-	FETCH NEXT FROM c INTO @testID, @tableID, @rows
+	FETCH NEXT FROM c INTO @tName, @testID, @tableID, @rows
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
 		DECLARE @t1 DATETIME = GETDATE()
 		
-		DECLARE @testName VARCHAR(128) = (SELECT Name FROM Tests WHERE TestID = @testID)
-		
-		EXEC (@testName + ' ' + @rows)
+		EXEC @tName @rows
 		
 		DECLARE @t2 DATETIME = GETDATE()
 		
 		INSERT INTO TestRunTables (TestRunID, TableID, StartAt, EndAt) VALUES (@tID, @tableID, @t1, @t2)
 		
-		FETCH NEXT FROM c INTO @testID, @tableID, @rows
+		FETCH NEXT FROM c INTO @tName, @testID, @tableID, @rows
 	END
 	
 	CLOSE c
@@ -212,8 +211,9 @@ BEGIN
 		DECLARE @t1 DATETIME = GETDATE()
 		
 		DECLARE @vName VARCHAR(128) = (SELECT Name FROM Views WHERE ViewID = @vID)
+		DECLARE @testName VARCHAR(128) = (SELECT Name FROM Tests t INNER JOIN TestViews tv ON t.TestID = tv.TestID WHERE tv.ViewID = @vID)
 		
-		EXEC ('selectView ' + @vName)
+		EXEC @testName @vName
 		
 		DECLARE @t2 DATETIME = GETDATE()
 		
@@ -258,4 +258,4 @@ BEGIN
 	SELECT * FROM TestRuns
 END
 
-EXEC runAllTests 5
+EXEC runAllTests 1
