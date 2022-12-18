@@ -13,6 +13,7 @@ DROP TABLE Discounts;
 
 CREATE TABLE Customers (
 	cID INT IDENTITY,
+	cBackupCode INT NOT NULL,
 	cFirstName VARCHAR(50) NOT NULL,
 	cLastName VARCHAR(50) NOT NULL,
 	cAddress VARCHAR(100) NOT NULL,
@@ -81,15 +82,17 @@ CREATE TABLE WorksIn (
 
 CREATE TABLE Discounts (
 	dID INT IDENTITY,
+	dCode INT UNIQUE NOT NULL,
 	dAmount INT NOT NULL,
 	dValidUntil VARCHAR(15) NOT NULL,
 	PRIMARY KEY (dID)
 );
 
 CREATE TABLE HasDiscount (
+	hdID INT IDENTITY,
 	dID INT FOREIGN KEY REFERENCES Discounts(dID) NOT NULL,
 	cID INT FOREIGN KEY REFERENCES Customers(cID) NOT NULL,
-	CONSTRAINT PK_HasDiscount PRIMARY KEY (dID, cID)
+	PRIMARY KEY (hdID)
 );
 
 CREATE TABLE Feedback (
@@ -103,12 +106,12 @@ CREATE TABLE Feedback (
 
 
 -- Insert customer queries
-INSERT INTO Customers (cFirstName, cLastName, cAddress, cPhone) VALUES ('Alex-Edward', 'Iakab', 'Strada Mircea Eliade 44C', '0729364643');
-INSERT INTO Customers (cFirstName, cLastName, cAddress, cPhone) VALUES ('Cristina', 'Hognogi', 'Strada Artarilor', '0723123456');
-INSERT INTO Customers (cFirstName, cLastName, cAddress, cPhone) VALUES ('Cristi', 'Ifrim', 'Hasdeu', '0726985123');
-INSERT INTO Customers (cFirstName, cLastName, cAddress, cPhone) VALUES ('Marian', 'Guceanu', 'Hasdeu', '0725849182');
-INSERT INTO Customers (cFirstName, cLastName, cAddress, cPhone) VALUES ('Albert', 'Havirneanu', 'Aurel Vlaicu', '0734567890');
-INSERT INTO Customers (cFirstName, cLastName, cAddress, cPhone) VALUES ('David', 'Horvath', 'Manastur', '0765182938');
+INSERT INTO Customers (cBackupCode, cFirstName, cLastName, cAddress, cPhone) VALUES (14, 'Alex-Edward', 'Iakab', 'Strada Mircea Eliade 44C', '0729364643');
+INSERT INTO Customers (cBackupCode, cFirstName, cLastName, cAddress, cPhone) VALUES (7437, 'Cristina', 'Hognogi', 'Strada Artarilor', '0723123456');
+INSERT INTO Customers (cBackupCode, cFirstName, cLastName, cAddress, cPhone) VALUES (5125, 'Cristi', 'Ifrim', 'Hasdeu', '0726985123');
+INSERT INTO Customers (cBackupCode, cFirstName, cLastName, cAddress, cPhone) VALUES (49182, 'Marian', 'Guceanu', 'Hasdeu', '0725849182');
+INSERT INTO Customers (cBackupCode, cFirstName, cLastName, cAddress, cPhone) VALUES (1562, 'Albert', 'Havirneanu', 'Aurel Vlaicu', '0734567890');
+INSERT INTO Customers (cBackupCode, cFirstName, cLastName, cAddress, cPhone) VALUES (7255, 'David', 'Horvath', 'Manastur', '0765182938');
 
 SELECT * FROM Customers;
 
@@ -200,11 +203,11 @@ INSERT INTO Orders (cID, oPrice, oDate, oQuantity, sID, pID) VALUES (1, 169.98, 
 SELECT * FROM Orders;
 
 -- Insert discount queries
-INSERT INTO Discounts (dAmount, dValidUntil) VALUES (2, '2022-12-12');
-INSERT INTO Discounts (dAmount, dValidUntil) VALUES (5, '2022-05-02');
-INSERT INTO Discounts (dAmount, dValidUntil) VALUES (10, '2023-01-01');
-INSERT INTO Discounts (dAmount, dValidUntil) VALUES (15, '2023-09-26');
-INSERT INTO Discounts (dAmount, dValidUntil) VALUES (25, '2023-11-17');
+INSERT INTO Discounts (dCode, dAmount, dValidUntil) VALUES (194, 2, '2022-12-12');
+INSERT INTO Discounts (dCode, dAmount, dValidUntil) VALUES (14, 5, '2022-05-02');
+INSERT INTO Discounts (dCode, dAmount, dValidUntil) VALUES (55, 10, '2023-01-01');
+INSERT INTO Discounts (dCode, dAmount, dValidUntil) VALUES (41, 15, '2023-09-26');
+INSERT INTO Discounts (dCode, dAmount, dValidUntil) VALUES (125, 25, '2023-11-17');
 
 SELECT * FROM Discounts;
 
