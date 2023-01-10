@@ -106,3 +106,7 @@ CREATE NONCLUSTERED INDEX NCI_Discounts_IDX ON Discounts(dCode)
 -- with 2 non clustered index added to to HasDiscount
 -- cost = 0.192482
 CREATE NONCLUSTERED INDEX NCI_HasDiscount_IDX ON HasDiscount(dID, cID)
+
+DROP INDEX NCI_Customers_IDX ON Customers
+DROP INDEX NCI_Discounts_IDX ON Discounts
+DROP INDEX NCI_HasDiscount_IDX ON HasDiscount
