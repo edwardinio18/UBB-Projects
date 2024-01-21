@@ -1,0 +1,39 @@
+28-May-2023 18:31:37.595 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+28-May-2023 18:31:37.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9
+28-May-2023 18:31:37.600 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9
+28-May-2023 18:31:37.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/conf/logging.properties
+28-May-2023 18:31:37.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-May-2023 18:31:37.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+28-May-2023 18:31:37.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+28-May-2023 18:31:37.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+28-May-2023 18:31:37.625 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9
+28-May-2023 18:31:37.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9
+28-May-2023 18:31:37.626 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/temp
+28-May-2023 18:31:37.645 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+28-May-2023 18:31:38.204 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+28-May-2023 18:31:38.315 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [942] milliseconds
+28-May-2023 18:31:38.383 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+28-May-2023 18:31:38.383 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+28-May-2023 18:31:38.415 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+28-May-2023 18:31:38.791 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+28-May-2023 18:31:38.842 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [426] ms
+28-May-2023 18:31:38.842 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/docs]
+28-May-2023 18:31:38.883 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/docs] has finished in [41] ms
+28-May-2023 18:31:38.884 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/manager]
+28-May-2023 18:31:38.941 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/manager] has finished in [57] ms
+28-May-2023 18:31:38.942 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/examples]
+28-May-2023 18:31:39.341 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/examples] has finished in [399] ms
+28-May-2023 18:31:39.341 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/ROOT]
+28-May-2023 18:31:39.370 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/ROOT] has finished in [29] ms
+28-May-2023 18:31:39.370 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/host-manager]
+28-May-2023 18:31:39.405 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Documents/Year 2 - Sem 2/Web Programming/Labs/Lab8/apache-tomcat-10.1.9/webapps/host-manager] has finished in [34] ms
+28-May-2023 18:31:39.409 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+28-May-2023 18:31:39.432 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1114] milliseconds

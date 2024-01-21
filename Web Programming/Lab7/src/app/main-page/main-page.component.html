@@ -1,0 +1,102 @@
+<h1>E-commerce Store</h1>
+
+<div id="categories">
+  <a
+    *ngFor="let category of categories"
+    href="#"
+    class="category-link"
+    [attr.data-category]="category"
+    (click)="selectCategory(category)"
+  >
+    {{ category }}
+  </a>
+</div>
+
+<div id="products">
+  <div class="product" *ngFor="let product of products">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <button
+      class="add-to-cart"
+      [attr.data-product-id]="product.id"
+      (click)="addToCart(product.id)"
+    >
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+<div id="pagination" *ngIf="totalPages > 0">
+  <button
+    id="prevPage"
+    [disabled]="currentPage === 1"
+    (click)="loadProductsByPage(currentPage - 1)"
+  >
+    Previous
+  </button>
+  <button
+    id="nextPage"
+    [disabled]="currentPage === totalPages"
+    (click)="loadProductsByPage(currentPage + 1)"
+  >
+    Next
+  </button>
+  <p id="page_display">{{ currentPage }} / {{ totalPages }}</p>
+</div>
+
+<div id="cart">
+  <div #quantityError id="quantity_error" [style.display]="'none'">
+    {{ quantityErrorMessage }}
+  </div>
+  <h2>Shopping Cart</h2>
+  <ul id="cartItems">
+    <li class="cart-item" *ngFor="let cartItem of cartItems">
+      {{ cartItem.name }} - Quantity:
+      <input
+        type="number"
+        min="0"
+        [(ngModel)]="cartItem.quantity"
+        (change)="updateCartItemQuantity(cartItem.id, cartItem.quantity)"
+      />
+      <button
+        class="edit-item cart-item-button"
+        [attr.data-cart-item-id]="cartItem.id"
+        (click)="updateCartItemQuantity(cartItem.id, cartItem.quantity)"
+      >
+        Edit
+      </button>
+      <button
+        class="delete-item cart-item-button"
+        [attr.data-cart-item-id]="cartItem.id"
+        (click)="removeFromCart(cartItem.id)"
+      >
+        Delete
+      </button>
+      <button
+        class="decrease-item cart-item-button"
+        [attr.data-cart-item-id]="cartItem.id"
+        (click)="decreaseFromCart(cartItem.id, cartItem.quantity)"
+      >
+        Decrease
+      </button>
+    </li>
+    <div class="cart-summary">
+      <li class="cart-total">
+        Total Quantity: <span class="cart-quantity">{{ totalQuantity }}</span>
+      </li>
+      <li class="cart-total">
+        Total Price: $<span class="cart-price">{{
+          totalPrice.toFixed(2)
+        }}</span>
+      </li>
+    </div>
+  </ul>
+  <button
+    id="clearCart"
+    [disabled]="cartItems.length === 0"
+    (click)="clearCart()"
+  >
+    Clear Cart
+  </button>
+</div>

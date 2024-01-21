@@ -1,0 +1,6 @@
+127.0.0.1 - - [28/May/2023:18:31:39 +0300] "GET / HTTP/1.1" 200 11235
+127.0.0.1 - - [28/May/2023:18:31:43 +0300] "GET /SnakeJSP/hello.jsp HTTP/1.0" 200 168
+127.0.0.1 - - [28/May/2023:18:31:44 +0300] "GET /SnakeJSP/hello.jsp HTTP/1.0" 200 168
+127.0.0.1 - - [28/May/2023:18:57:03 +0300] "GET /SnakeJSP/hello.jsp HTTP/1.0" 200 168
+127.0.0.1 - - [28/May/2023:18:57:04 +0300] "GET /SnakeJSP/hello.jsp HTTP/1.0" 200 168
+127.0.0.1 - - [28/May/2023:18:57:04 +0300] "GET /SnakeJSP/snake HTTP/1.0" 200 168

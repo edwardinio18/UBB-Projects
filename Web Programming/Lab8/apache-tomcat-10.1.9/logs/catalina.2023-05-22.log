@@ -1,0 +1,418 @@
+22-May-2023 10:49:39.839 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+22-May-2023 10:49:39.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+22-May-2023 10:49:39.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+22-May-2023 10:49:39.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+22-May-2023 10:49:39.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+22-May-2023 10:49:39.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+22-May-2023 10:49:39.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+22-May-2023 10:49:39.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+22-May-2023 10:49:39.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 10:49:39.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:39.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:39.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/conf/logging.properties
+22-May-2023 10:49:39.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 10:49:39.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 10:49:39.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 10:49:39.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+22-May-2023 10:49:39.872 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:39.872 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:39.872 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/temp
+22-May-2023 10:49:39.893 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+22-May-2023 10:49:40.352 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:40.381 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector[HTTP/1.1-8080]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1018)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:549)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:999)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:747)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:769)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:307)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:477)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:556)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+		at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:247)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:202)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1256)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1269)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:622)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:77)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1016)
+		... 11 more
+22-May-2023 10:49:40.382 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [811] milliseconds
+22-May-2023 10:49:40.438 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+22-May-2023 10:49:40.439 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+22-May-2023 10:49:40.487 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+22-May-2023 10:49:40.875 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-May-2023 10:49:40.928 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [441] ms
+22-May-2023 10:49:40.928 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs]
+22-May-2023 10:49:40.962 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs] has finished in [34] ms
+22-May-2023 10:49:40.962 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager]
+22-May-2023 10:49:41.015 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager] has finished in [53] ms
+22-May-2023 10:49:41.016 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples]
+22-May-2023 10:49:41.387 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples] has finished in [370] ms
+22-May-2023 10:49:41.387 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT]
+22-May-2023 10:49:41.409 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT] has finished in [21] ms
+22-May-2023 10:49:41.409 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager]
+22-May-2023 10:49:41.436 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager] has finished in [27] ms
+22-May-2023 10:49:41.440 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1056] milliseconds
+22-May-2023 10:49:41.449 SEVERE [main] org.apache.catalina.core.StandardServer.await Failed to create server shutdown socket on address [localhost] and port [8005] (base port [8005] and offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:556)
+		at java.base/sun.nio.ch.Net.bind(Net.java:545)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:629)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:393)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:275)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:576)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:887)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:833)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+22-May-2023 10:49:41.449 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:41.449 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+22-May-2023 10:49:41.456 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:41.459 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:41.466 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:41.466 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:41.470 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:41.470 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:41.475 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:41.475 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:41.479 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:41.480 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:41.484 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:41.484 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:41.485 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:41.487 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:47.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+22-May-2023 10:49:47.065 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+22-May-2023 10:49:47.065 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+22-May-2023 10:49:47.065 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:47.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:47.084 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/conf/logging.properties
+22-May-2023 10:49:47.085 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 10:49:47.085 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 10:49:47.085 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 10:49:47.085 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+22-May-2023 10:49:47.086 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:47.086 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:49:47.086 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/temp
+22-May-2023 10:49:47.106 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+22-May-2023 10:49:47.463 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:47.486 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector[HTTP/1.1-8080]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1018)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:549)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:999)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:747)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:769)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:307)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:477)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:556)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+		at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:247)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:202)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1256)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1269)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:622)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:77)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1016)
+		... 11 more
+22-May-2023 10:49:47.487 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [622] milliseconds
+22-May-2023 10:49:47.538 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+22-May-2023 10:49:47.538 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+22-May-2023 10:49:47.564 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+22-May-2023 10:49:47.860 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-May-2023 10:49:47.903 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [339] ms
+22-May-2023 10:49:47.904 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs]
+22-May-2023 10:49:47.933 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs] has finished in [29] ms
+22-May-2023 10:49:47.934 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager]
+22-May-2023 10:49:47.985 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager] has finished in [52] ms
+22-May-2023 10:49:47.985 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples]
+22-May-2023 10:49:48.233 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples] has finished in [248] ms
+22-May-2023 10:49:48.233 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT]
+22-May-2023 10:49:48.254 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT] has finished in [21] ms
+22-May-2023 10:49:48.254 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager]
+22-May-2023 10:49:48.281 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager] has finished in [27] ms
+22-May-2023 10:49:48.286 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [797] milliseconds
+22-May-2023 10:49:48.292 SEVERE [main] org.apache.catalina.core.StandardServer.await Failed to create server shutdown socket on address [localhost] and port [8005] (base port [8005] and offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:556)
+		at java.base/sun.nio.ch.Net.bind(Net.java:545)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:629)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:393)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:275)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:576)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:887)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:833)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+22-May-2023 10:49:48.292 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:48.292 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+22-May-2023 10:49:48.301 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:48.302 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:48.307 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:48.308 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:48.311 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:48.311 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:48.314 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:48.314 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:48.317 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:48.317 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:48.321 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:49:48.321 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:49:48.322 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:49:48.325 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:50:55.999 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [GET / HTTP/1.1] received
+22-May-2023 10:50:56.002 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [GET / HTTP/1.1] received
+22-May-2023 10:50:56.005 WARNING [main] org.apache.catalina.core.StandardServer.await Invalid shutdown command [GET / HTTP/1.1] received
+22-May-2023 10:52:37.348 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:52:37.357 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+22-May-2023 10:52:37.367 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:52:37.368 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:52:37.377 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:52:37.377 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:52:37.381 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:52:37.382 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:52:37.387 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:52:37.387 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:52:37.392 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:52:37.392 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:52:37.397 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:52:37.398 WARNING [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:52:37.398 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:52:37.410 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:52:47.945 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+22-May-2023 10:52:47.949 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+22-May-2023 10:52:47.949 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 10:52:47.950 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:52:47.951 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:52:47.965 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/conf/logging.properties
+22-May-2023 10:52:47.965 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 10:52:47.965 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 10:52:47.965 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 10:52:47.965 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+22-May-2023 10:52:47.965 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:52:47.966 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:52:47.966 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/temp
+22-May-2023 10:52:47.984 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+22-May-2023 10:52:48.432 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:52:48.472 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [707] milliseconds
+22-May-2023 10:52:48.521 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+22-May-2023 10:52:48.521 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+22-May-2023 10:52:48.544 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+22-May-2023 10:52:48.872 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-May-2023 10:52:48.913 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [369] ms
+22-May-2023 10:52:48.914 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs]
+22-May-2023 10:52:48.943 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs] has finished in [29] ms
+22-May-2023 10:52:48.943 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager]
+22-May-2023 10:52:48.985 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager] has finished in [42] ms
+22-May-2023 10:52:48.985 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples]
+22-May-2023 10:52:49.278 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples] has finished in [293] ms
+22-May-2023 10:52:49.278 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT]
+22-May-2023 10:52:49.296 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT] has finished in [18] ms
+22-May-2023 10:52:49.297 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager]
+22-May-2023 10:52:49.323 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager] has finished in [25] ms
+22-May-2023 10:52:49.326 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:52:49.344 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [870] milliseconds
+22-May-2023 10:53:16.457 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+22-May-2023 10:53:16.458 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:53:16.465 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+22-May-2023 10:53:16.473 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:53:16.475 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:53:16.482 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:53:16.483 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:53:16.487 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:53:16.487 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:53:16.490 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:53:16.491 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:53:16.495 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:53:16.496 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:53:16.499 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:53:16.499 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:53:16.500 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:53:16.512 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:53:17.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+22-May-2023 10:53:17.025 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+22-May-2023 10:53:17.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+22-May-2023 10:53:17.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+22-May-2023 10:53:17.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+22-May-2023 10:53:17.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+22-May-2023 10:53:17.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+22-May-2023 10:53:17.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+22-May-2023 10:53:17.027 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 10:53:17.027 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:53:17.027 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:53:17.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/conf/logging.properties
+22-May-2023 10:53:17.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 10:53:17.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 10:53:17.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 10:53:17.048 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+22-May-2023 10:53:17.048 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:53:17.048 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:53:17.048 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/temp
+22-May-2023 10:53:17.076 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+22-May-2023 10:53:17.472 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:53:17.505 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [683] milliseconds
+22-May-2023 10:53:17.550 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+22-May-2023 10:53:17.550 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+22-May-2023 10:53:17.571 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+22-May-2023 10:53:17.855 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-May-2023 10:53:17.897 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [326] ms
+22-May-2023 10:53:17.898 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs]
+22-May-2023 10:53:17.928 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs] has finished in [30] ms
+22-May-2023 10:53:17.929 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager]
+22-May-2023 10:53:17.973 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager] has finished in [44] ms
+22-May-2023 10:53:17.973 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples]
+22-May-2023 10:53:18.239 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples] has finished in [266] ms
+22-May-2023 10:53:18.239 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT]
+22-May-2023 10:53:18.260 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT] has finished in [21] ms
+22-May-2023 10:53:18.261 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager]
+22-May-2023 10:53:18.287 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager] has finished in [25] ms
+22-May-2023 10:53:18.292 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:53:18.365 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [857] milliseconds
+22-May-2023 10:55:28.383 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+22-May-2023 10:55:28.384 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:55:28.391 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+22-May-2023 10:55:28.398 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:55:28.399 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:55:28.404 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:55:28.404 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:55:28.408 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:55:28.408 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:55:28.411 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:55:28.411 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:55:28.414 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:55:28.414 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:55:28.417 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 10:55:28.417 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 10:55:28.417 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:55:28.426 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:55:48.121 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+22-May-2023 10:55:48.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+22-May-2023 10:55:48.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+22-May-2023 10:55:48.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+22-May-2023 10:55:48.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+22-May-2023 10:55:48.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+22-May-2023 10:55:48.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+22-May-2023 10:55:48.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+22-May-2023 10:55:48.127 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 10:55:48.127 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:55:48.127 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:55:48.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/conf/logging.properties
+22-May-2023 10:55:48.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 10:55:48.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 10:55:48.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 10:55:48.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+22-May-2023 10:55:48.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:55:48.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 10:55:48.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/temp
+22-May-2023 10:55:48.161 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+22-May-2023 10:55:48.604 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:55:48.638 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [742] milliseconds
+22-May-2023 10:55:48.685 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+22-May-2023 10:55:48.685 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+22-May-2023 10:55:48.710 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+22-May-2023 10:55:49.046 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-May-2023 10:55:49.089 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [379] ms
+22-May-2023 10:55:49.089 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs]
+22-May-2023 10:55:49.119 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs] has finished in [30] ms
+22-May-2023 10:55:49.120 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager]
+22-May-2023 10:55:49.162 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager] has finished in [42] ms
+22-May-2023 10:55:49.163 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples]
+22-May-2023 10:55:49.488 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples] has finished in [325] ms
+22-May-2023 10:55:49.488 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT]
+22-May-2023 10:55:49.507 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT] has finished in [19] ms
+22-May-2023 10:55:49.507 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager]
+22-May-2023 10:55:49.531 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager] has finished in [24] ms
+22-May-2023 10:55:49.536 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+22-May-2023 10:55:49.553 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [914] milliseconds
+22-May-2023 11:18:54.954 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+22-May-2023 11:18:54.955 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+22-May-2023 11:18:54.964 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+22-May-2023 11:18:54.978 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 11:18:54.979 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 11:18:54.987 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 11:18:54.987 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 11:18:54.993 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 11:18:54.994 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 11:18:54.997 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 11:18:54.998 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 11:18:55.002 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 11:18:55.002 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 11:18:55.006 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks You need to add "--add-opens=java.base/java.lang=ALL-UNNAMED" to the JVM command line arguments to enable ThreadLocal memory leak detection. Alternatively, you can suppress this warning by disabling ThreadLocal memory leak detection.
+22-May-2023 11:18:55.007 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets You need to add "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+22-May-2023 11:18:55.007 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+22-May-2023 11:18:55.023 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+22-May-2023 11:18:55.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.9
+22-May-2023 11:18:55.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 9 2023 14:30:05 UTC
+22-May-2023 11:18:55.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.9.0
+22-May-2023 11:18:55.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            13.4
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           20.0.1+9-29
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 11:18:55.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 11:18:55.562 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/conf/logging.properties
+22-May-2023 11:18:55.562 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-May-2023 11:18:55.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-May-2023 11:18:55.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-May-2023 11:18:55.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+22-May-2023 11:18:55.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 11:18:55.563 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9
+22-May-2023 11:18:55.564 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/temp
+22-May-2023 11:18:55.583 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/edwardiakab/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+22-May-2023 11:18:55.930 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+22-May-2023 11:18:55.965 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [640] milliseconds
+22-May-2023 11:18:56.012 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+22-May-2023 11:18:56.013 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.9]
+22-May-2023 11:18:56.035 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war]
+22-May-2023 11:18:56.337 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-May-2023 11:18:56.380 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/SnakeJSP.war] has finished in [345] ms
+22-May-2023 11:18:56.381 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs]
+22-May-2023 11:18:56.413 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/docs] has finished in [31] ms
+22-May-2023 11:18:56.413 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager]
+22-May-2023 11:18:56.459 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/manager] has finished in [46] ms
+22-May-2023 11:18:56.459 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples]
+22-May-2023 11:18:56.732 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/examples] has finished in [272] ms
+22-May-2023 11:18:56.732 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT]
+22-May-2023 11:18:56.752 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/ROOT] has finished in [20] ms
+22-May-2023 11:18:56.752 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager]
+22-May-2023 11:18:56.776 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/edwardiakab/Downloads/apache-tomcat-10.1.9/webapps/host-manager] has finished in [24] ms
+22-May-2023 11:18:56.780 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+22-May-2023 11:18:56.798 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [832] milliseconds
