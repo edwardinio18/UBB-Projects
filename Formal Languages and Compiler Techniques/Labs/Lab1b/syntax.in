@@ -1,0 +1,43 @@
+Sintactical rules: (file Syntax.in)
+
+decllist ::= declaration | declaration ";" decllist
+
+declaration ::= IDENTIFIER ":" type ";"
+
+type1 ::= "advfals" | "caracter" | "intreg" | "real"
+
+arraydecl ::= "sir" "(" nr ")" "de" type1
+
+type  ::= type1|arraydecl
+
+cmpdstmt ::= "incepe" stmtlist "termina"
+
+stmtlist ::= stmt | stmt ";" stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt | iostmt
+
+forstmt ::= "pentru" "(" assignstmt ";" condition ";" assignstmt ")" "fa" "{" stmt "}"
+
+foreachstmt ::= "pentrufiecare" "(" IDENTIFIER "in" IDENTIFIER ")" "fa" "{" stmt "}"
+
+assignstmt ::= IDENTIFIER "=" expression
+
+expression ::= expression "adunate" term | term
+
+term ::= term "oriori" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER | constanta
+
+iostmt ::= "citeste" | "scrie" "(" IDENTIFIER ")"
+
+structstmt ::= cmpdstmt | ifstmt | whilestmt | forstmt | foreachstmt
+
+ifstmt ::= "daca" "(" condition ")" "atunci" "{" stmt "}" ["altfel" "{" stmt "}"]
+
+whilestmt ::= "cattimp" "(" condition ")" "fa" "{" stmt "}"
+
+condition ::= expression RELATION expression
+
+RELATION ::= "maimic" | "maimicegal" | "verificaegal" | "nu" | "maimareegal" | "maimare"

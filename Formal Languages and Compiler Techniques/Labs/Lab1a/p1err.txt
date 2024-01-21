@@ -1,0 +1,20 @@
+cvnou a: intreg; // variable must begin with €
+cvnou €b: intreg;
+cvnou €c: intreg;
+
+citeste(€a);
+citeste(€b);
+citeste(€c);
+
+€smallest_int: intreg;
+€smallest_int = €a;
+
+dacaa (€smallest_int maimaree €b) atunci { // daca spelled wrong; maimare spelled wrong
+    €smallest_int = €b;
+}
+
+daca (€smallest_int maimare €c) atunci {
+    €smallest_int = €c;
+}
+
+scrie(€smallest_int);

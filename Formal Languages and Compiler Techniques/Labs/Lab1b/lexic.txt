@@ -1,0 +1,21 @@
+Alphabet
+a-z
+A-Z
+0-9
+_
+€
+
+Lexic
+operators: adunate, stergete, oriori, orioriinvers, estiegal, verificaegal, verificanuegal, maimare, maimic, maimareegal, maimicegal, lasuta
+separators: spatiu, sarilinia, gatalinia, :, ., , (comma), ', ", (, ), {, }, [, ], _
+reserved words: cvnou, daca, altfel, cattimp, fa, pentrufiecare, oprestete, continua, scrie, citeste, in, prog, de, atunci, incepe, termina, intreg, real, sfoara, sir, constanta, functie, intoarce, advfals, caracter, radical
+comments: //
+
+identifier = ("€"){letter | digit | _}
+letter = "A" | "B" | ... | "Z" | "a" | "b".. | "z"
+digit = "0" | "1" | ... | "9"
+
+intconst = "0" | ["stergete"]nz_digit{digit}
+nz_digit = "1" | "2" | ... | "9"
+strconst = ""{letter | digit | "_" | " "}""
+charconst = "'"(letter | digit)"'"

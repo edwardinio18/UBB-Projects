@@ -1,0 +1,1287 @@
+p1.txt
+reserved word: prog
+symbol: {
+stmtlist -> empty
+reserved word: cvnou
+identifier: €a
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €b
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €c
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €a
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €b
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €c
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €smallest_int
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+identifier: €smallest_int
+stmtlist -> stmtlist stmt
+operator: estiegal
+identifier: €a
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: daca
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €smallest_int
+operator: maimare
+term -> IDENTIFIER
+expression -> term
+RELATION -> maimare
+identifier: €b
+symbol: )
+term -> IDENTIFIER
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+identifier: €smallest_int
+operator: estiegal
+identifier: €b
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+reserved word: daca
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €smallest_int
+operator: maimare
+term -> IDENTIFIER
+expression -> term
+RELATION -> maimare
+identifier: €c
+symbol: )
+term -> IDENTIFIER
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+identifier: €smallest_int
+operator: estiegal
+identifier: €c
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+reserved word: scrie
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €smallest_int
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+program -> prog { stmtlist }
+
+p1err.txt
+reserved word: prog
+symbol: {
+stmtlist -> empty
+reserved word: cvnou
+identifier: €a
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €b
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €c
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €a
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €b
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €c
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €smallest_int
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+identifier: €smallest_int
+stmtlist -> stmtlist stmt
+Error at token = at line 9
+
+p2.txt
+reserved word: prog
+symbol: {
+stmtlist -> empty
+reserved word: cvnou
+identifier: €x
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €x
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €i
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+identifier: €i
+stmtlist -> stmtlist stmt
+operator: estiegal
+integer constant: 2
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €prime
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+identifier: €prime
+stmtlist -> stmtlist stmt
+operator: estiegal
+integer constant: 1
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: cattimp
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €i
+operator: oriori
+term -> IDENTIFIER
+operator -> oriori
+identifier: €i
+operator: maimicegal
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+RELATION -> maimicegal
+identifier: €x
+reserved word: sisi
+term -> IDENTIFIER
+expression -> term
+identifier: €prime
+operator: verificaegal
+term -> IDENTIFIER
+expression -> term
+RELATION -> verificaegal
+integer constant: 1
+term -> INTCONSTANT
+symbol: )
+expression -> term
+condition -> expression RELATION expression
+condition -> expression RELATION expression si condition
+reserved word: fa
+symbol: {
+stmtlist -> empty
+reserved word: daca
+symbol: (
+identifier: €x
+operator: lasuta
+term -> IDENTIFIER
+operator -> lasuta
+identifier: €i
+operator: verificaegal
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+RELATION -> verificaegal
+integer constant: 0
+term -> INTCONSTANT
+symbol: )
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+identifier: €prime
+operator: estiegal
+integer constant: 0
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+identifier: €i
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+operator: estiegal
+identifier: €i
+operator: adunate
+term -> IDENTIFIER
+operator -> adunate
+integer constant: 1
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+whilestmt -> cattimp condition incepe stmtlist termina ;
+structstmt -> cattimp
+stmt -> structstmt
+reserved word: daca
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €prime
+operator: verificaegal
+term -> IDENTIFIER
+expression -> term
+RELATION -> verificaegal
+integer constant: 1
+term -> INTCONSTANT
+symbol: )
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+reserved word: scrie
+symbol: (
+string constant: "Yes, it is prime!"
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+reserved word: altfel
+symbol: {
+stmtlist -> empty
+reserved word: scrie
+symbol: (
+string constant: "No, it is not prime."
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa altfel acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €a
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €b
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "a="
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €a
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "b="
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €b
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €remainder
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cattimp
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €b
+operator: verificanuegal
+term -> IDENTIFIER
+expression -> term
+RELATION -> verificanuegal
+integer constant: 0
+term -> INTCONSTANT
+symbol: )
+expression -> term
+condition -> expression RELATION expression
+reserved word: fa
+symbol: {
+stmtlist -> empty
+identifier: €remainder
+operator: estiegal
+identifier: €a
+operator: lasuta
+term -> IDENTIFIER
+operator -> lasuta
+identifier: €b
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+identifier: €a
+stmtlist -> stmtlist stmt
+operator: estiegal
+identifier: €b
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+identifier: €b
+stmtlist -> stmtlist stmt
+operator: estiegal
+identifier: €remainder
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+whilestmt -> cattimp condition incepe stmtlist termina ;
+structstmt -> cattimp
+stmt -> structstmt
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "GCD is "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €a
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €a
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €b
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €c
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "The ecuation: a*x^2 + b*x + c = 0\n"
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "a="
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €a
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "b="
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €b
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "c="
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €c
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €d
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+identifier: €d
+stmtlist -> stmtlist stmt
+operator: estiegal
+identifier: €b
+operator: oriori
+term -> IDENTIFIER
+operator -> oriori
+identifier: €b
+operator: stergete
+term -> IDENTIFIER
+operator -> stergete
+integer constant: 4
+term -> INTCONSTANT
+operator: oriori
+operator -> oriori
+identifier: €a
+operator: oriori
+term -> IDENTIFIER
+operator -> oriori
+identifier: €c
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+expression -> term operator expression
+expression -> term operator expression
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €sol1
+symbol: :
+reserved word: real
+type1 -> real
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €sol2
+symbol: :
+reserved word: real
+type1 -> real
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: daca
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €d
+operator: maimic
+term -> IDENTIFIER
+expression -> term
+RELATION -> maimic
+integer constant: 0
+term -> INTCONSTANT
+symbol: )
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+reserved word: scrie
+symbol: (
+string constant: "No real solutions."
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+reserved word: daca
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €d
+operator: verificaegal
+term -> IDENTIFIER
+expression -> term
+RELATION -> verificaegal
+integer constant: 0
+term -> INTCONSTANT
+symbol: )
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+identifier: €sol1
+operator: estiegal
+symbol: (
+operator: stergete
+identifier: €b
+factor -> stergete IDENTIFIER
+term -> factor
+symbol: )
+expression -> term
+factor -> ( expression )
+term -> factor
+operator: orioriinvers
+operator -> orioriinvers
+symbol: (
+integer constant: 2
+term -> INTCONSTANT
+operator: oriori
+operator -> oriori
+identifier: €a
+symbol: )
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+factor -> ( expression )
+term -> factor
+symbol: ;
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "Unique solution "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €sol1
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+identifier: €sol1
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+operator: estiegal
+symbol: (
+symbol: (
+operator: stergete
+identifier: €b
+factor -> stergete IDENTIFIER
+term -> factor
+symbol: )
+expression -> term
+factor -> ( expression )
+term -> factor
+operator: stergete
+operator -> stergete
+symbol: (
+reserved word: radical
+symbol: (
+identifier: €d
+symbol: )
+radstmt -> radical ( IDENTIFIER )
+factor -> radstmt
+term -> factor
+symbol: )
+expression -> term
+factor -> ( expression )
+term -> factor
+symbol: )
+expression -> term
+expression -> term operator expression
+factor -> ( expression )
+term -> factor
+operator: orioriinvers
+operator -> orioriinvers
+symbol: (
+integer constant: 2
+term -> INTCONSTANT
+operator: oriori
+operator -> oriori
+identifier: €a
+symbol: )
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+factor -> ( expression )
+term -> factor
+symbol: ;
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+identifier: €sol2
+stmtlist -> stmtlist stmt
+operator: estiegal
+symbol: (
+symbol: (
+operator: stergete
+identifier: €b
+factor -> stergete IDENTIFIER
+term -> factor
+symbol: )
+expression -> term
+factor -> ( expression )
+term -> factor
+operator: adunate
+operator -> adunate
+symbol: (
+reserved word: radical
+symbol: (
+identifier: €d
+symbol: )
+radstmt -> radical ( IDENTIFIER )
+factor -> radstmt
+term -> factor
+symbol: )
+expression -> term
+factor -> ( expression )
+term -> factor
+symbol: )
+expression -> term
+expression -> term operator expression
+factor -> ( expression )
+term -> factor
+operator: orioriinvers
+operator -> orioriinvers
+symbol: (
+integer constant: 2
+term -> INTCONSTANT
+operator: oriori
+operator -> oriori
+identifier: €a
+symbol: )
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+factor -> ( expression )
+term -> factor
+symbol: ;
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "2 solutions "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €sol1
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: " and "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €sol2
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+program -> prog { stmtlist }
+
+p3.txt
+reserved word: prog
+symbol: {
+stmtlist -> empty
+reserved word: cvnou
+identifier: €n
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €sum
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €i
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €n
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+identifier: €sum
+stmtlist -> stmtlist stmt
+operator: estiegal
+integer constant: 0
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+identifier: €i
+stmtlist -> stmtlist stmt
+operator: estiegal
+integer constant: 1
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: cattimp
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €i
+operator: maimicegal
+term -> IDENTIFIER
+expression -> term
+RELATION -> maimicegal
+identifier: €n
+symbol: )
+term -> IDENTIFIER
+expression -> term
+condition -> expression RELATION expression
+reserved word: fa
+symbol: {
+stmtlist -> empty
+identifier: €sum
+operator: estiegal
+identifier: €sum
+operator: adunate
+term -> IDENTIFIER
+operator -> adunate
+identifier: €i
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+identifier: €i
+stmtlist -> stmtlist stmt
+operator: estiegal
+identifier: €i
+operator: adunate
+term -> IDENTIFIER
+operator -> adunate
+integer constant: 1
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+expression -> term operator expression
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+whilestmt -> cattimp condition incepe stmtlist termina ;
+structstmt -> cattimp
+stmt -> structstmt
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "Sum: "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €sum
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €numbers
+symbol: :
+reserved word: sir
+symbol: (
+integer constant: 10
+symbol: )
+reserved word: de
+reserved word: intreg
+type1 -> intreg
+arraydecl -> sir parantezadeschisa INTCONSTANT parantezainchisa de type1
+type -> arraydecl
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €max_num
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: cvnou
+stmtlist -> stmtlist stmt
+identifier: €min_num
+symbol: :
+reserved word: intreg
+type1 -> intreg
+type -> type1
+declaration -> CVNOU IDENTIFIER : type ;
+simplstmt -> declaration
+symbol: ;
+stmt -> simplstmt ;
+reserved word: citeste
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €numbers
+symbol: )
+iostmt -> citeste ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+identifier: €max_num
+stmtlist -> stmtlist stmt
+operator: estiegal
+operator: stergete
+integer constant: 999999
+factor -> stergete INTCONSTANT
+term -> factor
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+identifier: €min_num
+stmtlist -> stmtlist stmt
+operator: estiegal
+integer constant: 999999
+term -> INTCONSTANT
+symbol: ;
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+reserved word: pentrufiecare
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €num
+reserved word: in
+identifier: €numbers
+symbol: )
+reserved word: fa
+symbol: {
+stmtlist -> empty
+reserved word: daca
+symbol: (
+identifier: €num
+operator: maimare
+term -> IDENTIFIER
+expression -> term
+RELATION -> maimare
+identifier: €max_num
+symbol: )
+term -> IDENTIFIER
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+identifier: €max_num
+operator: estiegal
+identifier: €num
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+reserved word: daca
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €num
+operator: maimic
+term -> IDENTIFIER
+expression -> term
+RELATION -> maimic
+identifier: €min_num
+symbol: )
+term -> IDENTIFIER
+expression -> term
+condition -> expression RELATION expression
+reserved word: atunci
+symbol: {
+stmtlist -> empty
+identifier: €min_num
+operator: estiegal
+identifier: €num
+symbol: ;
+term -> IDENTIFIER
+expression -> term
+assignstmt -> IDENTIFIER estiegal expression
+simplstmt -> assignstmt
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+symbol: }
+ifstmt -> daca parantezadeschisa condition parantezainchisa atunci acoladadeschisa stmtlist acoladainchisa
+structstmt -> daca
+stmt -> structstmt
+stmtlist -> stmtlist stmt
+foreachstmt -> pentrufiecare parantezadeschisa IDENTIFIER in IDENTIFIER parantezainchisa fa acoladadeschisa stmtlist acoladainchisa
+structstmt -> pentrufiecare
+stmt -> structstmt
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "Max: "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €max_num
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+string constant: "Min: "
+symbol: )
+iostmt -> scrie ( STRINGCONSTANT )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+reserved word: scrie
+stmtlist -> stmtlist stmt
+symbol: (
+identifier: €min_num
+symbol: )
+iostmt -> scrie ( IDENTIFIER )
+simplstmt -> iostmt
+symbol: ;
+stmt -> simplstmt ;
+symbol: }
+stmtlist -> stmtlist stmt
+program -> prog { stmtlist }

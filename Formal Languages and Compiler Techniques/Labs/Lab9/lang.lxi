@@ -1,0 +1,96 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "lang.tab.h"
+int lines = 1;
+%}
+
+%option noyywrap
+%option caseless
+
+DIGIT [0-9]
+NON_ZERO_DIGIT [1-9]
+INT_CONSTANT [stergete]?{NON_ZERO_DIGIT}{DIGIT}*|0
+LETTER [a-zA-Z_]
+SIGNS [ _.,:;]
+STRING_CONSTANT \"[^\"]*\"
+IDENTIFIER (€{LETTER})({LETTER}|{DIGIT}|_)*
+BAD_IDENTIFIER (^€)({LETTER}|{DIGIT}|_)*
+
+%%
+
+"prog" { printf("reserved word: %s\n", yytext); return PROG; }
+"cvnou" { printf("reserved word: %s\n", yytext); return CVNOU; }
+"daca" { printf("reserved word: %s\n", yytext); return DACA; }
+"altfel" { printf("reserved word: %s\n", yytext); return ALTFEL; }
+"cattimp" { printf("reserved word: %s\n", yytext); return CATTIMP; }
+"fa" { printf("reserved word: %s\n", yytext); return FA; }
+"pentrufiecare" { printf("reserved word: %s\n", yytext); return PENTRUFIECARE; }
+"oprestete" { printf("reserved word: %s\n", yytext); return OPRESTETE; }
+"continua" { printf("reserved word: %s\n", yytext); return CONTINUA; }
+"scrie" { printf("reserved word: %s\n", yytext); return SCRIE; }
+"citeste" { printf("reserved word: %s\n", yytext); return CITESTE; }
+"in" { printf("reserved word: %s\n", yytext); return IN; }
+"de" { printf("reserved word: %s\n", yytext); return DE; }
+"atunci" { printf("reserved word: %s\n", yytext); return ATUNCI; }
+"incepe" { printf("reserved word: %s\n", yytext); return INCEPE; }
+"termina" { printf("reserved word: %s\n", yytext); return TERMINA; }
+"intreg" { printf("reserved word: %s\n", yytext); return INTREG; }
+"real" { printf("reserved word: %s\n", yytext); return REAL; }
+"sfoara" { printf("reserved word: %s\n", yytext); return SFOARA; }
+"sir" { printf("reserved word: %s\n", yytext); return SIR; }
+"constanta" { printf("reserved word: %s\n", yytext); return CONSTANT; }
+"functie" { printf("reserved word: %s\n", yytext); return FUNCTIE; }
+"intoarce" { printf("reserved word: %s\n", yytext); return INTOARCE; }
+"advfals" { printf("reserved word: %s\n", yytext); return ADVFALS; }
+"caracter" { printf("reserved word: %s\n", yytext); return CARACTER; }
+"radical" { printf("reserved word: %s\n", yytext); return RADICAL; }
+"sisi" { printf("reserved word: %s\n", yytext); return SISI; }
+"sausau" { printf("reserved word: %s\n", yytext); return SAUSAU; }
+
+"adunate" { printf("operator: %s\n", yytext); return ADUNATE; }
+"stergete" { printf("operator: %s\n", yytext); return STERGETE; }
+"oriori" { printf("operator: %s\n", yytext); return ORIORI; }
+"orioriinvers" { printf("operator: %s\n", yytext); return ORIORIINVERS; }
+"estiegal" { printf("operator: %s\n", yytext); return ESTIEGAL; }
+"verificaegal" { printf("operator: %s\n", yytext); return VERIFICAEGAL; }
+"verificanuegal" { printf("operator: %s\n", yytext); return VERIFICANUEGAL; }
+"maimare" { printf("operator: %s\n", yytext); return MAIMARE; }
+"maimic" { printf("operator: %s\n", yytext); return MAIMIC; }
+"maimareegal" { printf("operator: %s\n", yytext); return MAIMAREEGAL; }
+"maimicegal" { printf("operator: %s\n", yytext); return MAIMICEGAL; }
+"lasuta" { printf("operator: %s\n", yytext); return LASUTA; }
+
+"spatiu" { printf("symbol: %s\n", yytext); return SPATIU; }
+"sarilinia" { printf("symbol: %s\n", yytext); return SARILINIA; }
+"gatalinia" { printf("symbol: %s\n", yytext); return GATALINIA; }
+";" { printf("symbol: %s\n", yytext); return PUNCTVIRGULA; }
+":" { printf("symbol: %s\n", yytext); return DOUAPUNCTE; }
+"." { printf("symbol: %s\n", yytext); return PUNCT; }
+"," { printf("symbol: %s\n", yytext); return VIRGULA; }
+"(" { printf("symbol: %s\n", yytext); return PARANTEZADESCHISA; }
+")" { printf("symbol: %s\n", yytext); return PARANTEZAINCHISA; }
+"{" { printf("symbol: %s\n", yytext); return ACOLADADESCHISA; }
+"}" { printf("symbol: %s\n", yytext); return ACOLADAINCHISA; }
+"[" { printf("symbol: %s\n", yytext); return PARANTEZAPATRATADESCHISA; }
+"]" { printf("symbol: %s\n", yytext); return PARANTEZAPATRATAINCHISA; }
+"_" { printf("symbol: %s\n", yytext); return LINIESUBTIRE; }
+
+{IDENTIFIER} { printf("identifier: %s\n", yytext); return IDENTIFIER; }
+
+{BAD_IDENTIFIER} { printf("Error at token %s at line %d\n", yytext, lines); return -1; }
+
+{INT_CONSTANT} { printf("integer constant: %s\n", yytext); return INTCONSTANT; }
+
+{STRING_CONSTANT} { printf("string constant: %s\n", yytext); return STRINGCONSTANT; }
+
+[ \t]+ {}
+
+"//"(.)*[\n]+ {++lines;}
+
+[\n]+ {++lines;}
+
+. {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
+
+%%

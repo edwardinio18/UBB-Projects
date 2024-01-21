@@ -1,0 +1,83 @@
+// Verify if a number is prime, compute gcd of 2 numbers, compute the solutions for a 2nd order equation
+
+// Verify if a number is prime
+cvnou €x: intreg;
+citeste(€x);
+cvnou €i: intreg;
+€i estiegal 2;
+cvnou €prime: intreg;
+€prime estiegal 1;
+
+cattimp (€i oriori €i maimicegal €x sisi €prime verificaegal 1) fa {
+    daca (€x lasuta €i verificaegal 0) atunci {
+        €prime estiegal 0;
+    }
+    €i estiegal €i adunate 1;
+}
+
+daca (€prime verificaegal 1) atunci {
+    scrie("Yes, it is prime!");	
+} altfel {
+    scrie("No, it is not prime.");
+}
+
+// Compute gcd of 2 numbers
+cvnou €a: intreg;
+cvnou €b: intreg;
+
+scrie("a=");
+citeste(€a);
+
+scrie("b=");
+citeste(€b);
+
+cvnou €remainder: intreg;
+
+cattimp (€b verificanuegal 0) fa {
+    €remainder estiegal €a lasuta €b;
+    €a estiegal €b;
+    €b estiegal €remainder;
+}
+
+scrie("GCD is ");
+scrie(€a);
+
+// Compute the solutions for a 2nd order equation
+cvnou €a: intreg;
+cvnou €b: intreg;
+cvnou €c: intreg;
+
+scrie("The ecuation: a*x^2 + b*x + c = 0\n");
+
+scrie("a=");
+citeste(€a);
+
+scrie("b=");
+citeste(€b);
+
+scrie("c=");
+citeste(€c);
+
+cvnou €d: intreg;
+€d estiegal €b oriori €b stergete 4 oriori €a oriori €c;
+
+cvnou €sol1: real;
+cvnou €sol2: real;
+
+daca (€d maimic 0) atunci {
+    scrie("No real solutions.");
+}
+
+daca (€d verificaegal 0) atunci {
+    €sol1 estiegal (stergete €b) orioriinvers (2 oriori €a);
+    scrie("Unique solution ");
+    scrie(€sol1);
+}
+
+€sol1 estiegal ((stergete €b) stergete (radical €d)) orioriinvers (2 oriori €a);
+€sol2 estiegal ((stergete €b) adunate (radical €d)) orioriinvers (2 oriori €a);
+
+scrie("2 solutions ");
+scrie(€sol1);
+scrie(" and ");
+scrie(€sol2);

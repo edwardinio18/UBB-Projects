@@ -1,0 +1,53 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int lines = 1;
+%}
+
+%option noyywrap
+%option caseless
+
+DIGIT [0-9]
+NON_ZERO_DIGIT [1-9]
+INT_CONSTANT [stergete]?{NON_ZERO_DIGIT}{DIGIT}*|0
+LETTER [a-zA-Z_]
+SIGNS [ _.,:;]
+STRING_CONSTANT \"[^\"]*\"
+IDENTIFIER (€{LETTER})({LETTER}|{DIGIT}|_)*
+BAD_IDENTIFIER (^€)({LETTER}|{DIGIT}|_)*
+
+%%
+
+"cvnou"|"daca"|"altfel"|"cattimp"|"fa"|"pentrufiecare"|"oprestete"|"continua"|"scrie"|"citeste"|"in"|"prog"|"de"|"atunci"|"incepe"|"termina"|"intreg"|"real"|"sfoara"|"sir"|"constanta"|"functie"|"intoarce"|"advfals"|"caracter"|"radical"|"sisi"|"sausau" {printf("RESERVED WORD: %s\n", yytext);}
+
+"adunate"|"stergete"|"oriori"|"orioriinvers"|"estiegal"|"verificaegal"|"verificanuegal"|"maimare"|"maimic"|"maimareegal"|"maimicegal"|"lasuta" {printf("OPERATOR: %s\n", yytext);}
+
+"spatiu"|"sarilinia"|"gatalinia"|";"|":"|"."|","|"("|")"|"{"|"}"|"["|"]"|"_" {printf("SEPARATORS: %s\n", yytext);}
+
+{IDENTIFIER} {printf("IDENTIFIER: %s\n", yytext);}
+
+{BAD_IDENTIFIER} {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
+
+{INT_CONSTANT} {printf("INTEGER CONSTANT: %s\n", yytext);}
+
+{STRING_CONSTANT} {printf("STRING CONSTANT: %s\n", yytext);}
+
+[ \t]+ {}
+
+"//"(.)*[\n]+ {++lines;}
+
+[\n]+ {++lines;}
+
+. {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
+
+%%
+
+int main(int argc, char** argv) {
+    if (argc > 1)
+        yyin = fopen(argv[1], "r");
+    else
+        yyin = stdin;
+    yylex();
+}

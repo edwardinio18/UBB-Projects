@@ -1,0 +1,22 @@
+// Min of 3 numbers
+
+cvnou €a: intreg;
+cvnou €b: intreg;
+cvnou €c: intreg;
+
+citeste(€a);
+citeste(€b);
+citeste(€c);
+
+€smallest_int: intreg;
+€smallest_int estiegal €a;
+
+daca (€smallest_int maimare €b) atunci {
+    €smallest_int estiegal €b;
+}
+
+daca (€smallest_int maimare €c) atunci {
+    €smallest_int estiegal €c;
+}
+
+scrie(€smallest_int);

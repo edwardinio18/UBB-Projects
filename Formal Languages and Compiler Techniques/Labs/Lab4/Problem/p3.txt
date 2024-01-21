@@ -1,0 +1,45 @@
+// Compute the sum of n numbers, compute the max/min of n numbers
+
+// Compute the sum of n numbers
+cvnou €n: intreg;
+cvnou €sum: intreg;
+cvnou €i: intreg;
+
+citeste(€n);
+€sum estiegal 0;
+€i estiegal 1;
+
+cattimp (€i maimicegal €n) fa {
+    €sum estiegal €sum adunate €i;
+    €i estiegal €i adunate 1;
+}
+
+scrie("Sum: ");
+scrie(€sum);
+
+// Compute the max/min of n numbers
+cvnou €numbers: sir(10) de intreg;
+cvnou €max_num: intreg;
+cvnou €min_num: intreg;
+
+citeste(€numbers);
+€max_num estiegal stergete 999999;
+€min_num estiegal 999999;
+
+€i estiegal 0;
+cvnou €num: intreg;
+cattimp (€i maimic 10) fa {
+    €num estiegal €numbers[€i];
+    daca (€num maimare €max_num) atunci {
+        €max_num estiegal €num;
+    }
+    daca (€num maimic €min_num) atunci {
+        €min_num estiegal €num;
+    }
+    €i estiegal €i adunate 1;
+}
+
+scrie("Max: ");
+scrie(€max_num);
+scrie("Min: ");
+scrie(€min_num);
