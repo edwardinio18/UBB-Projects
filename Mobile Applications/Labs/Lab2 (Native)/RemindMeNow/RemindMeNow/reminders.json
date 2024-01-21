@@ -1,0 +1,102 @@
+[
+	{
+		"id": 1,
+		"title": "Meeting with Client",
+		"date": "05/11/2023",
+		"time": "14:30",
+		"category": "Work",
+		"priority": "High",
+		"note": "Discuss project updates.",
+		"isCompleted": true
+	},
+	{
+		"id": 2,
+		"title": "Grocery Shopping",
+		"date": "06/11/2023",
+		"time": "10:00",
+		"category": "Personal",
+		"priority": "Medium",
+		"note": "Buy milk, eggs, and vegetables.",
+		"isCompleted": false
+	},
+	{
+		"id": 3,
+		"title": "Exercise",
+		"date": "07/11/2023",
+		"time": "07:00",
+		"category": "Health",
+		"priority": "Low",
+		"note": "Go for a morning run.",
+		"isCompleted": true
+	},
+	{
+		"id": 4,
+		"title": "Dentist Appointment",
+		"date": "08/11/2023",
+		"time": "15:45",
+		"category": "Health",
+		"priority": "High",
+		"note": "Get a check-up.",
+		"isCompleted": true
+	},
+	{
+		"id": 5,
+		"title": "Read a Book",
+		"date": "09/11/2023",
+		"time": "20:00",
+		"category": "Personal",
+		"priority": "Low",
+		"note": "Continue reading 'The Great Gatsby.'",
+		"isCompleted": false
+	},
+	{
+		"id": 6,
+		"title": "Project Deadline",
+		"date": "10/11/2023",
+		"time": "18:00",
+		"category": "Work",
+		"priority": "High",
+		"note": "Submit the project report.",
+		"isCompleted": true
+	},
+	{
+		"id": 7,
+		"title": "Family Dinner",
+		"date": "11/11/2023",
+		"time": "19:30",
+		"category": "Personal",
+		"priority": "Medium",
+		"note": "Cook a special meal for the family.",
+		"isCompleted": false
+	},
+	{
+		"id": 8,
+		"title": "Call Grandma",
+		"date": "12/11/2023",
+		"time": "16:15",
+		"category": "Family",
+		"priority": "Low",
+		"note": "Catch up with Grandma.",
+		"isCompleted": false
+	},
+	{
+		"id": 9,
+		"title": "Conference Presentation",
+		"date": "13/11/2023",
+		"time": "10:30",
+		"category": "Work",
+		"priority": "High",
+		"note": "Prepare for the conference.",
+		"isCompleted": true
+	},
+	{
+		"id": 10,
+		"title": "Hiking Trip",
+		"date": "14/11/2023",
+		"time": "08:00",
+		"category": "Recreation",
+		"priority": "Medium",
+		"note": "Pack essentials for the hiking trip.",
+		"isCompleted": false
+	}
+]

@@ -1,0 +1,19 @@
+# Top-most .editorconfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.dart]
+charset = utf-8
+
+# 2 space indentation
+indent_style = space
+indent_size = 2
+
+# Hard wrap at 120 characters
+max_line_length = 130
