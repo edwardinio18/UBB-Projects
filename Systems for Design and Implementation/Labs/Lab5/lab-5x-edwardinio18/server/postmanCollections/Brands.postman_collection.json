@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "16b426a9-437a-40de-8fe6-85e5c2d9f315",
+		"name": "Brands",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12032775"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.cigs.io/get_brand/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get_brand",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.cigs.io/get_brand/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get_brand",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.cigs.io/stats_brand",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stats_brand"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.cigs.io/stats_brand_2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stats_brand_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Vogue\",\n    \"origin\": \"UK\",\n    \"description\": \"Pall Mall is a UK company that manufactures cigarettes\",\n    \"noCountries\": 48,\n    \"photo\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/PallMall.jpg/220px-PallMall.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.cigs.io/add_brand/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"add_brand",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Many",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cigs\": [\n        {\n            \"name\": \"Winston Green Slim\",\n            \"price\": 23,\n            \"origin\": \"USA\",\n            \"photo\": \"https://www.cigarettesshop.net/images/2018/11/13/20181113100001-1.jpg\",\n            \"description\": \"Winston is a cigarette manufacturing company based in the UK\"\n        },\n        {\n            \"name\": \"Marlboro Gold\",\n            \"price\": 20,\n            \"origin\": \"USA\",\n            \"photo\": \"https://www.cigarettesshop.net/images/2018/11/13/20181113100001-1.jpg\",\n            \"description\": \"Winston is a cigarette manufacturing company based in the UK\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.cigs.io/add_many/2/cigs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"add_many",
+						"2",
+						"cigs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sobranie\",\n    \"origin\": \"UK\",\n    \"description\": \"Dunhill is a cigarette company stabilized in the UK\",\n    \"noCountries\": 95,\n    \"photo\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Dunhill.jpg/220px-Dunhill.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.cigs.io/update_brand/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update_brand",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://api.cigs.io/delete_brand/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete_brand",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

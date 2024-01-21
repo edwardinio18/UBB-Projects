@@ -1,0 +1,726 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "4.2.0",
+    "title": "Cigs API",
+    "description": "Cigs API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "cigsapi.onrender.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Cigarettes",
+      "description": "API for cigarettes"
+    },
+    {
+      "name": "Brands",
+      "description": "API for brands"
+    },
+    {
+      "name": "People",
+      "description": "API for people"
+    },
+    {
+      "name": "CigarettePeople",
+      "description": "API for cigarette people"
+    }
+  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/get_cig": {
+      "get": {
+        "tags": ["Cigarettes"],
+        "summary": "Get all cigarettes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Cigarette"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_cig/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cigarette that we want to get",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": ["Cigarettes"],
+        "summary": "Get a cigarette by a given ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Cigarette"
+            }
+          }
+        }
+      }
+    },
+    "/filter/{price}": {
+      "parameters": [
+        {
+          "name": "price",
+          "in": "path",
+          "required": true,
+          "description": "Price that we want to filter by",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": ["Cigarettes"],
+        "summary": "Get all cigarettes that have a price greater than a given price",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Cigarette"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/add_cig": {
+      "post": {
+        "tags": ["Cigarettes"],
+        "summary": "Add a new cigarette",
+        "parameters": [
+          {
+            "name": "cigarette",
+            "in": "body",
+            "description": "Cigarette that we want to add",
+            "schema": {
+              "$ref": "#/definitions/Cigarette"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Cigarette added succesfully"
+          }
+        }
+      }
+    },
+    "/update_cig/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cigarette that we want to update",
+          "type": "number"
+        }
+      ],
+      "put": {
+        "summary": "Update cigarette with given ID",
+        "tags": ["Cigarettes"],
+        "parameters": [
+          {
+            "name": "cigarette",
+            "in": "body",
+            "description": "Cigarette with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Cigarette"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cigarette is updated"
+          }
+        }
+      }
+    },
+    "/brands/{id}/cigs": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of brand that we want to update the given cigarettes' brand with",
+          "type": "number"
+        },
+        {
+          "name": "cigs",
+          "in": "body",
+          "description": "List of cigarettes whose brand's we will update",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cigs": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "put": {
+        "tags": ["Cigarettes"],
+        "summary": "Update all given cigarettes' brand's and return the list of updated cigarettes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Cigarette"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete_cig/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cigarette that we want to delete",
+          "type": "number"
+        }
+      ],
+      "delete": {
+        "summary": "Delete the cigarette with the given ID",
+        "tags": ["Cigarettes"],
+        "responses": {
+          "200": {
+            "description": "Cigarette is deleted"
+          }
+        }
+      }
+    },
+    "/get_brand": {
+      "get": {
+        "tags": ["Brands"],
+        "summary": "Get all brands",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_brand/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the brand that we want to get",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": ["Brands"],
+        "summary": "Get a brand by a given ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Brand"
+            }
+          }
+        }
+      }
+    },
+    "/stats_brand": {
+      "get": {
+        "tags": ["Brands"],
+        "summary": "Sort the brands in descending order by the average price of their cigarettes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats_brand_2": {
+      "get": {
+        "tags": ["Brands"],
+        "summary": "Sort the brands in ascending order by the average number of cigarettes smoked by each person and the number of countries where the brand is sold",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/add_brand": {
+      "post": {
+        "tags": ["Brands"],
+        "summary": "Add a new brand",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "body",
+            "description": "Brand that we want to add",
+            "schema": {
+              "$ref": "#/definitions/Brand"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Brand added succesfully"
+          }
+        }
+      }
+    },
+    "/add_many/{id}/cigs": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of brand that we want to add to the given cigarettes' brand's",
+          "type": "number"
+        },
+        {
+          "name": "cigs",
+          "in": "body",
+          "description": "List of cigarettes that we will add",
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Cigarette"
+            }
+          }
+        }
+      ],
+      "post": {
+        "tags": ["Brands"],
+        "summary": "Add all the given cigarettes to the brand with the given ID",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/update_brand/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the brand that we want to update",
+          "type": "number"
+        },
+        {
+          "name": "brand",
+          "in": "body",
+          "description": "Brand that we want to update",
+          "schema": {
+            "$ref": "#/definitions/Brand"
+          }
+        }
+      ],
+      "put": {
+        "tags": ["Brands"],
+        "summary": "Update the brand with the given ID",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/delete_brand/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the brand that we want to delete",
+          "type": "number"
+        }
+      ],
+      "delete": {
+        "tags": ["Brands"],
+        "summary": "Delete the brand with the given ID",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/get_people": {
+      "get": {
+        "tags": ["People"],
+        "summary": "Get all people",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Person"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_person/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the person that we want to get",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": ["People"],
+        "summary": "Get a person by a given ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          }
+        }
+      }
+    },
+    "/add_person": {
+      "post": {
+        "tags": ["People"],
+        "summary": "Add a new person",
+        "parameters": [
+          {
+            "name": "person",
+            "in": "body",
+            "description": "Person that we want to add",
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Person added succesfully"
+          }
+        }
+      }
+    },
+    "/update_person/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the person that we want to update",
+          "type": "number"
+        },
+        {
+          "name": "person",
+          "in": "body",
+          "description": "Person that we want to update",
+          "schema": {
+            "$ref": "#/definitions/Person"
+          }
+        }
+      ],
+      "put": {
+        "tags": ["People"],
+        "summary": "Update the person with the given ID",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/delete_person/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the person that we want to delete",
+          "type": "number"
+        }
+      ],
+      "delete": {
+        "tags": ["People"],
+        "summary": "Delete the person with the given ID",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/get_cig_person": {
+      "get": {
+        "tags": ["CigarettePeople"],
+        "summary": "Get all cigarette-people",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CigarettePerson"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_cig_person/{cid}/{pid}": {
+      "parameters": [
+        {
+          "name": "cid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cigarette",
+          "type": "number"
+        },
+        {
+          "name": "pid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the person",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": ["CigarettePeople"],
+        "summary": "Get a cigarette-person by given IDs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CigarettePerson"
+            }
+          }
+        }
+      }
+    },
+    "/add_cig_person": {
+      "post": {
+        "tags": ["CigarettePeople"],
+        "summary": "Add a new cigarette-person",
+        "parameters": [
+          {
+            "name": "cigarettePerson",
+            "in": "body",
+            "description": "Cigarette-person that we want to add",
+            "schema": {
+              "$ref": "#/definitions/CigarettePerson"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Cigarette-person added succesfully"
+          }
+        }
+      }
+    },
+    "/update_cig_person/{cid}/{pid}": {
+      "parameters": [
+        {
+          "name": "cid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cigarette",
+          "type": "number"
+        },
+        {
+          "name": "pid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the person",
+          "type": "number"
+        },
+        {
+          "name": "cigarettePerson",
+          "in": "body",
+          "description": "Cigarette-person that we want to update",
+          "schema": {
+            "$ref": "#/definitions/CigarettePerson"
+          }
+        }
+      ],
+      "put": {
+        "tags": ["CigarettePeople"],
+        "summary": "Update the cigarette-person with the given IDs",
+        "responses": {
+          "200": {
+            "description": "Cigarette-person updated succesfully"
+          }
+        }
+      }
+    },
+    "/delete_cig_person/{cid}/{pid}": {
+      "parameters": [
+        {
+          "name": "cid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cigarette",
+          "type": "number"
+        },
+        {
+          "name": "pid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the person",
+          "type": "number"
+        }
+      ],
+      "delete": {
+        "tags": ["CigarettePeople"],
+        "summary": "Delete the cigarette-person with the given IDs",
+        "responses": {
+          "200": {
+            "description": "Cigarette-person deleted succesfully"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Cigarette": {
+      "required": [
+        "id",
+        "name",
+        "price",
+        "origin",
+        "photo",
+        "description",
+        "brand"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "price": {
+          "type": "number"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "number"
+        }
+      }
+    },
+    "Brand": {
+      "required": ["name", "origin", "description", "noCountries", "photo"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "origin": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "noCountries": {
+          "type": "number"
+        },
+        "photo": {
+          "type": "string"
+        }
+      }
+    },
+    "Person": {
+      "required": ["name", "age", "email", "phone", "address"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "CigarettePerson": {
+      "required": ["cigarette", "person", "createdAt", "updatedAt"],
+      "properties": {
+        "cigarette": {
+          "type": "number"
+        },
+        "person": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
