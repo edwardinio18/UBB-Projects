@@ -1,0 +1,11 @@
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\bin\Debug\Lab2.exe.config
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\bin\Debug\Lab2.exe
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\bin\Debug\Lab2.pdb
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.csproj.AssemblyReference.cache
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.csproj.SuggestedBindingRedirects.cache
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\A2.Form1.resources
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.csproj.GenerateResource.cache
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.csproj.CoreCompileInputs.cache
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.exe
+\\Mac\Home\Documents\Year 2 - Sem 2\Database Management System\Labs\Lab2\Lab2\Lab2\obj\Debug\Lab2.pdb
