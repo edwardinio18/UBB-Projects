@@ -1,0 +1,91 @@
+Id: 4
+Execution stack: 
+(int v|(v = 2|Print(v)))
+Symbol table: 
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+int v
+(v = 2|Print(v))
+Symbol table: 
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+int v
+(v = 2|Print(v))
+Symbol table: 
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+(v = 2|Print(v))
+Symbol table: 
+v -> 0
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+(v = 2|Print(v))
+Symbol table: 
+v -> 0
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+v = 2
+Print(v)
+Symbol table: 
+v -> 0
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+v = 2
+Print(v)
+Symbol table: 
+v -> 0
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+Print(v)
+Symbol table: 
+v -> 2
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+Print(v)
+Symbol table: 
+v -> 2
+Output list: 
+File table:
+Heap memory:
+
+Id: 4
+Execution stack: 
+Symbol table: 
+v -> 2
+Output list: 
+2
+File table:
+Heap memory:
+
