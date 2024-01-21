@@ -1,0 +1,15 @@
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/bin/Debug/net6.0/Lab4
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/bin/Debug/net6.0/Lab4.deps.json
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/bin/Debug/net6.0/Lab4.runtimeconfig.json
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/bin/Debug/net6.0/Lab4.dll
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/bin/Debug/net6.0/Lab4.pdb
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.csproj.AssemblyReference.cache
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.GeneratedMSBuildEditorConfig.editorconfig
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.AssemblyInfoInputs.cache
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.AssemblyInfo.cs
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.csproj.CoreCompileInputs.cache
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.dll
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/refint/Lab4.dll
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.pdb
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/Lab4.genruntimeconfig.cache
+/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab4/Lab4/obj/Debug/net6.0/ref/Lab4.dll

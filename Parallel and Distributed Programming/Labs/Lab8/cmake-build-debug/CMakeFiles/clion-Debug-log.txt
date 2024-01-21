@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/x64/ninja -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G Ninja -S "/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab8" -B "/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab8/cmake-build-debug"
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab8/cmake-build-debug

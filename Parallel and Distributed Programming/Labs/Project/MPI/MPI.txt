@@ -1,0 +1,447 @@
+#include "Color.h"
+
+Color::Color(int n) : ColorNumber(n) {
+    // Initialize the colors map with an empty string for each color
+    for (int code = 0; code < n; code++) {
+        colors[code] = "";
+    }
+}
+
+std::map<int, std::string> Color::getColors() const {
+    return colors;
+}
+
+void Color::addColor(int code, const std::string& name) {
+    colors[code] = name;
+}
+
+std::string Color::getColor(int code) const {
+    // Find the color in the map and return it
+    auto it = colors.find(code);
+
+    if (it != colors.end()) {
+        return it->second;
+    }
+
+    return "";
+}
+
+int Color::getColorNumber() const {
+    return ColorNumber;
+}
+
+std::map<int, std::string> Color::getColorsForCodes(const std::vector<int>& codes) const {
+    // Create a map of the colors for the given codes and return it
+    std::map<int, std::string> result; // The map to return
+
+    for (size_t i = 0; i < codes.size(); i++) {
+        // Get the color for the code and add it to the map
+        std::string color = colors.at(codes[i]); // The color for the code
+        result[i] = color; // Add the color to the map
+    }
+
+    return result;
+}#ifndef COLOR_H
+#define COLOR_H
+
+#include <map>
+#include <string>
+
+class Color {
+public:
+    Color(int n);
+    std::map<int, std::string> getColors() const;
+    void addColor(int code, const std::string& name);
+    std::string getColor(int code) const;
+    int getColorNumber() const;
+    std::map<int, std::string> getColorsForCodes(const std::vector<int>& codes) const;
+
+private:
+    int ColorNumber;
+    std::map<int, std::string> colors;
+};
+
+#endif // COLOR_H
+#include "Graph.h"
+#include <stdexcept>
+#include <iostream>
+
+
+Graph::Graph(int n) : nodesNumber(n) {
+    // Initialize the nodes map with an empty set for each node
+    for (int i = 0; i < n; ++i) {
+        nodes[i] = std::set<int>();
+    }
+}
+
+Graph::Graph() : nodesNumber(0) {}
+void Graph::addEdge(int node1, int node2) {
+    nodes[node1].insert(node2);
+    nodes[node2].insert(node1);
+}
+
+int Graph::getNodesNumber() const {
+    return nodesNumber;
+}
+
+const std::set<int> &Graph::getNeighbours(int node) const {
+    // Find the node in the map and return its neighbours
+    auto it = nodes.find(node);
+
+    if (it != nodes.end()) {
+        return it->second;
+    }
+
+    throw std::runtime_error("Node not found");
+}
+
+std::vector<std::vector<int>> Graph::getAdjacencyMatrix() const {
+    // Initialize the adjacency matrix with 0s everywhere and 1s where there is an edge
+    std::vector<std::vector<int>> adjacencyMatrix(nodesNumber, std::vector<int>(nodesNumber, 0));
+
+    for (const auto &nodeEntry: nodes) {
+        int node = nodeEntry.first;
+        const std::set<int> &neighbors = nodeEntry.second;
+
+        for (int neighbor: neighbors) {
+            adjacencyMatrix[node][neighbor] = 1;
+            adjacencyMatrix[neighbor][node] = 1;
+        }
+    }
+
+    return adjacencyMatrix;
+}
+
+bool Graph::existsEdge(int node1, int node2) {
+    // Check if node1 is in the map and if node2 is in its neighbours set (and vice versa)
+    return nodes[node1].find(node2) != nodes[node1].end();
+}
+
+Graph Graph::generateRandomGraph(int n, int m) {
+    Graph graph(n);
+
+    // Generate m random edges
+    for (int i = 0; i < m; ++i) {
+        int node1 = rand() % n;
+        int node2 = rand() % n;
+
+        // Check if edge already exists
+        if (graph.existsEdge(node1, node2)) {
+            --i;
+            continue;
+        }
+
+        graph.addEdge(node1, node2);
+    }
+
+    return graph;
+}#ifndef GRAPH_H
+#define GRAPH_H
+
+#include <map>
+#include <set>
+
+class Graph {
+public:
+    Graph();
+    Graph(int n);
+    void addEdge(int node1, int node2);
+    int getNodesNumber() const;
+    const std::set<int>& getNeighbours(int node) const;
+    std::vector<std::vector<int> > getAdjacencyMatrix() const;
+    bool existsEdge(int node1, int node2);
+    static Graph generateRandomGraph(int n, int m);
+
+private:
+    int nodesNumber;
+    std::map<int, std::set<int> > nodes;
+};
+
+#endif // GRAPH_H
+#include "GraphColoring.h"
+#include <stdexcept>
+
+std::map<int, std::string> GraphColoring::graphColoringMain(int mpiSize, Graph &graph, Color &colors) {
+    int colorsNumber = colors.getColorNumber();
+    std::vector<int> codes = graphColoringRecursive(0, graph, colorsNumber, std::vector<int>(graph.getNodesNumber(), 0), 0, mpiSize, 0);
+
+    if (codes[0] == -1) {
+        throw std::runtime_error("No solution found!");
+    }
+
+    return colors.getColorsForCodes(codes);
+}
+
+std::vector<int>
+GraphColoring::graphColoringRecursive(int nodeId, Graph &graph, int colorsNumber, std::vector<int> codes, int mpiRank, int mpiSize, int power) {
+    int nodesNumber = graph.getNodesNumber();
+
+    if (!isColorValid(nodeId, codes, graph)) {
+        return fillArray(nodesNumber, -1);
+    }
+
+    if (nodeId + 1 == nodesNumber) {
+        return codes;
+    }
+
+    int coefficient = static_cast<int>(pow(colorsNumber, power));
+    int colorCode = 0;
+    int destination = mpiRank + coefficient * (colorCode + 1);
+
+    while (colorCode + 1 < colorsNumber && destination < mpiSize) {
+        colorCode++;
+        destination = mpiRank + coefficient * (colorCode + 1);
+    }
+
+    int nextNode = nodeId + 1;
+    int nextPower = power + 1;
+
+    for (int currentColorCode = 1; currentColorCode < colorCode; currentColorCode++) {
+        destination = mpiRank + coefficient * currentColorCode;
+        int data[3] = {mpiRank, nextNode, nextPower};
+
+        int mpi_error;
+
+        mpi_error = MPI_Send(data, 3, MPI_INT, destination, 0, MPI_COMM_WORLD);
+        if (mpi_error != MPI_SUCCESS) {
+            char error_string[MPI_MAX_ERROR_STRING];
+            int length;
+            MPI_Error_string(mpi_error, error_string, &length);
+            printf("MPI_Send error: %s\n", error_string);
+        }
+
+        std::vector<int> nextColorCodes = codes;
+        nextColorCodes[nextNode] = currentColorCode;
+
+        mpi_error = MPI_Send(nextColorCodes.data(), nodesNumber, MPI_INT, destination, 0, MPI_COMM_WORLD);
+        if (mpi_error != MPI_SUCCESS) {
+            char error_string[MPI_MAX_ERROR_STRING];
+            int length;
+            MPI_Error_string(mpi_error, error_string, &length);
+            printf("MPI_Send error: %s\n", error_string);
+        }
+    }
+
+    std::vector<int> nextColorCodes = codes;
+    nextColorCodes[nextNode] = 0;
+    std::vector<int> result = graphColoringRecursive(nextNode, graph, colorsNumber, nextColorCodes, mpiRank, mpiSize, nextPower);
+
+    if (result[0] != -1) {
+        return result;
+    }
+
+    for (int currentColorCode = 1; currentColorCode < colorCode; currentColorCode++) {
+        destination = mpiRank + coefficient * currentColorCode;
+        result.resize(nodesNumber);
+        MPI_Recv(result.data(), nodesNumber, MPI_INT, destination, MPI_ANY_TAG, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+        if (result[0] != -1) {
+            return result;
+        }
+    }
+
+    for (int currentColorCode = colorCode; currentColorCode < colorsNumber; currentColorCode++) {
+        nextColorCodes = codes;
+        nextColorCodes[nextNode] = currentColorCode;
+        result = graphColoringRecursive(nextNode, graph, colorsNumber, nextColorCodes, mpiRank, mpiSize, nextPower);
+
+        if (result[0] != -1) {
+            return result;
+        }
+    }
+
+    return result;
+}
+
+void GraphColoring::graphColoringChild(int mpiRank, int mpiSize, Graph &graph, int colorsNumber) {
+    int nodesNumber = graph.getNodesNumber();
+    int data[3];
+    MPI_Recv(data, 3, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+    int parent = data[0];
+    int nodeId = data[1];
+    int power = data[2];
+
+    std::vector<int> codes(nodesNumber);
+    MPI_Recv(codes.data(), nodesNumber, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+    std::vector<int> result = graphColoringRecursive(nodeId, graph, colorsNumber, codes, mpiRank, mpiSize, power);
+
+    int mpi_error = MPI_Send(result.data(), nodesNumber, MPI_INT, parent, 0, MPI_COMM_WORLD);
+    if (mpi_error != MPI_SUCCESS) {
+        char error_string[MPI_MAX_ERROR_STRING];
+        int length;
+        MPI_Error_string(mpi_error, error_string, &length);
+        printf("MPI_Send error: %s\n", error_string);
+    }
+}
+
+std::vector<int> GraphColoring::fillArray(int length, int value) {
+    return std::vector<int>(length, value);
+}
+
+bool GraphColoring::isColorValid(int node, std::vector<int> &codes, Graph &graph) {
+    for (int current = 0; current < node; current++) {
+        if ((graph.existsEdge(node, current) || graph.existsEdge(current, node)) && codes[node] == codes[current]) {
+            return false;
+        }
+    }
+    return true;
+}#ifndef GRAPH_COLORING_H
+#define GRAPH_COLORING_H
+
+#include <iostream>
+#include <vector>
+#include <map>
+#include "mpi.h"
+#include "Graph.h"
+#include "Color.h"
+
+class GraphColoring {
+public:
+    static std::map<int, std::string> graphColoringMain(int mpiSize, Graph& graph, Color& colors);
+    static void graphColoringChild(int mpiRank, int mpiSize, Graph& graph, int colorsNumber);
+
+private:
+    static std::vector<int> graphColoringRecursive(int nodeId, Graph& graph, int colorsNumber, std::vector<int> codes, int mpiRank, int mpiSize, int power);
+    static std::vector<int> fillArray(int length, int value);
+    static bool isColorValid(int node, std::vector<int>& codes, Graph& graph);
+};
+
+#endif // GRAPH_COLORING_H
+#include <iostream>
+#include <mpi.h>
+#include "Graph.h"
+#include "Color.h"
+#include "GraphColoring.h"
+#include <chrono>
+
+// ANSI escape codes for colored text
+const std::string ANSI_RESET = "\x1B[0m";
+const std::string ANSI_RED = "\x1B[31m";
+const std::string ANSI_BLUE = "\x1B[34m";
+const std::string ANSI_GREEN = "\x1B[32m";
+const std::string ANSI_YELLOW = "\x1B[33m";
+
+std::string getNodeColorCode(const std::string &color) {
+    if (color == "red") return ANSI_RED;
+    if (color == "blue") return ANSI_BLUE;
+    if (color == "green") return ANSI_GREEN;
+    if (color == "yellow") return ANSI_YELLOW;
+    return ANSI_RESET;
+}
+
+void printGraphResults(const Graph &graph, const Color &colors, const std::map<int, std::string> &result) {
+    std::vector <std::vector<int>> adjacencyMatrix = graph.getAdjacencyMatrix();
+    std::cout << std::endl << "Adjacency Matrix:" << std::endl;
+    for (const auto &row: adjacencyMatrix) {
+        for (int val: row) {
+            std::cout << val << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    std::cout << std::endl << "Colored Graph:" << std::endl;
+    for (const auto &pair: result) {
+        std::cout << "Node " << getNodeColorCode(pair.second) << pair.first << ANSI_RESET << " is colored "
+                  << pair.second << std::endl;
+    }
+}
+
+int main(int argc, char *argv[]) {
+    srand(time(nullptr));
+
+    MPI_Init(&argc, &argv);
+    MPI_Comm_set_errhandler(MPI_COMM_WORLD, MPI_ERRORS_RETURN); // Enable error handling
+
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    for (int graphNumber = 1; graphNumber <= 3; ++graphNumber) {
+        int n = rand() % 10 + 5;
+        int m = rand() % (n * (n - 1) / 2 - n + 1) + n - 1;
+
+        Graph graph = Graph::generateRandomGraph(n, m);
+        Color colors(4);
+        colors.addColor(0, "red");
+        colors.addColor(1, "blue");
+        colors.addColor(2, "green");
+        colors.addColor(3, "yellow");
+
+        if (rank == 0) {
+            std::cout << "---------------------------------------------" << std::endl;
+            std::cout << "Graph " << graphNumber << " (n=" << n << ", m=" << m << ")" << std::endl;
+
+            try {
+                auto start = std::chrono::high_resolution_clock::now();
+                auto result = GraphColoring::graphColoringMain(size, graph, colors);
+                auto stop = std::chrono::high_resolution_clock::now();
+
+                std::chrono::duration<double, std::milli> time = stop - start;
+                std::cout << "Elapsed time: " << time.count() / 1000 << " seconds" << std::endl;
+                printGraphResults(graph, colors, result);
+            } catch (const std::exception &e) {
+                std::cerr << "Error (Graph " << graphNumber << "): " << e.what() << std::endl;
+            }
+        } else {
+            int colorsNumber = colors.getColorNumber();
+            GraphColoring::graphColoringChild(rank, size, graph, colorsNumber);
+        }
+    }
+
+    MPI_Finalize();
+    return 0;
+}---------------------------------------------
+Graph 1 (n=12, m=45)
+Error (Graph 1): No solution found!
+---------------------------------------------
+Graph 2 (n=10, m=25)
+Elapsed time: 0.000497375 seconds
+
+Adjacency Matrix:
+0 1 0 1 1 0 1 0 0 1
+1 1 1 1 0 0 0 0 0 0
+0 1 0 0 0 1 0 0 1 1
+1 1 0 0 1 0 1 1 1 0
+1 0 0 1 0 1 1 0 1 0
+0 0 1 0 1 1 1 1 0 1
+1 0 0 1 1 1 0 0 1 0
+0 0 0 1 0 1 0 0 1 1
+0 0 1 1 1 0 1 1 0 0
+1 0 1 0 0 1 0 1 0 0
+
+Colored Graph:
+Node 0 is colored red
+Node 1 is colored blue
+Node 2 is colored green
+Node 3 is colored green
+Node 4 is colored blue
+Node 5 is colored red
+Node 6 is colored yellow
+Node 7 is colored blue
+Node 8 is colored red
+Node 9 is colored yellow
+---------------------------------------------
+Graph 3 (n=8, m=17)
+Elapsed time: 5.3e-05 seconds
+
+Adjacency Matrix:
+1 1 0 1 0 0 1 1
+1 1 1 1 0 0 0 0
+0 1 0 1 0 0 0 1
+1 1 1 0 0 1 1 0
+0 0 0 0 1 1 1 1
+0 0 0 1 1 0 0 0
+1 0 0 1 1 0 0 0
+1 0 1 0 1 0 0 1
+
+Colored Graph:
+Node 0 is colored red
+Node 1 is colored blue
+Node 2 is colored red
+Node 3 is colored green
+Node 4 is colored red
+Node 5 is colored blue
+Node 6 is colored blue
+Node 7 is colored blue

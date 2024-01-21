@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab1",
+      "program": "/Users/edwardiakab/Documents/Year 3 - Sem 1/Parallel and Distributed Programming/Labs/Lab1/build/Debug/outDebug"
+    }
+  ]
+}
