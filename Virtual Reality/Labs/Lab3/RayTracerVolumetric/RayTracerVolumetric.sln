@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayTracerVolumetric", "RayTracerVolumetric\RayTracerVolumetric.csproj", "{EDB944D7-D9BA-4BBA-9F8E-901D5B791288}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDB944D7-D9BA-4BBA-9F8E-901D5B791288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDB944D7-D9BA-4BBA-9F8E-901D5B791288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDB944D7-D9BA-4BBA-9F8E-901D5B791288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDB944D7-D9BA-4BBA-9F8E-901D5B791288}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
