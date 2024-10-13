@@ -26,3 +26,9 @@ This is a repository of all things college related.
 - [Public-Key Cryptography](https://github.com/edwardinio18/UBB-Projects/tree/main/Public-Key%20Cryptography)
 - [Team Project](https://github.com/edwardinio18/UBB-Projects/tree/main/Team%20Project)
 - [Virtual Reality](https://github.com/edwardinio18/UBB-Projects/tree/main/Virtual%20Reality)
+
+## Semester 6
+
+- [Numerical Calculus](https://github.com/edwardinio18/UBB-Projects/tree/main/Numerical%20Calculus)
+- [Game Development](https://github.com/edwardinio18/UBB-Projects/tree/main/Game%20Development)
+- [Software Systems Verification and Validation](https://github.com/edwardinio18/UBB-Projects/tree/main/Software%20Systems%20Verification%20and%20Validation)
